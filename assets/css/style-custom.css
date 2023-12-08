@@ -1,4 +1,23 @@
-.bi {
-  vertical-align: -0.125em;
-  fill: black;
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff9f9;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+footer {
+  background-color: rgb(255, 232, 236);
+}
+
+footer .copyright {
+  background-color: rgb(255, 72, 72);
 }
