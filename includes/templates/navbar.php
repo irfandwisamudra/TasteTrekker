@@ -1,5 +1,5 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
+    <div class="container">
       <a class="navbar-brand" href="<?= BASEURL ?>/index.php">
         <img src="<?= BASEURL ?>/assets/img/logo/TasteTrekker.svg" alt="Logo TasteTrekker" height="30px">
       </a>
@@ -22,17 +22,17 @@
           </li>
           <li class="nav-item">
             <form class="d-flex" action="" method="get">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-dark" type="submit">Search</button>
+              <input class="form-control mx-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-danger" type="submit">Search</button>
             </form>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="btn btn-outline-dark mx-2" href="<?= BASEURL ?>/login.php"">Login</a>
+            <a class="btn btn-outline-danger mx-2" href="<?= BASEURL ?>/login.php"">Login</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-dark" href="<?= BASEURL ?>/login.php"">Sign Up</a>
+            <a class="btn btn-danger" href="<?= BASEURL ?>/login.php"">Sign Up</a>
           </li>
         </ul>
       </div>
