@@ -3,6 +3,30 @@
   margin: 0;
 }
 
+.navbar {
+  background-color: rgba(248, 249, 250, 0.9);
+}
+
+body {
+  padding-top: 56px;
+}
+
+.hero-section {
+  background-color: #f8f9fa;
+}
+
+.feature-section {
+  background-color: #e9ecef;
+}
+
+.menu-section {
+  background-color: #ced4da;
+}
+
+.category-section {
+  background-color: #dee2e6;
+}
+
 footer {
   background-color: rgb(255, 232, 236);
 }

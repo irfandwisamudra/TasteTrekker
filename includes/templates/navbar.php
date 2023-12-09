@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparant fixed-top">
     <div class="container">
       <a class="navbar-brand" href="<?= BASEURL ?>/index.php">
         <img src="<?= BASEURL ?>/assets/img/logo/TasteTrekker.svg" alt="Logo TasteTrekker" height="30px">
