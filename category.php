@@ -6,7 +6,7 @@ include "./includes/main_start.php";
 ?>
 
 <?php
-$category = getAllDataCategories();
+$categories = getAllDataCategories();
 ?>
 
 <H2 class="fw-bold text-center py-5">KATEGORI MENU</H2>
@@ -19,19 +19,14 @@ $category = getAllDataCategories();
     <div class="carousel-item active">
       <div class="container">
         <div class="row">
-          <?php foreach ($category as $kategori) :
-            $kategori_id = $kategori['category_id'];
-            $kategori_nama = $kategori['name_category'];
-            $kategori_desc = $kategori['desc_category'];
-            $kategori_img = $kategori['image_category'];
-          ?>
+          <?php foreach ($categories as $category) : ?>
             <div class="col-lg-4 mb-5">
               <div class="card">
-                <img src="<?= BASEURL ?>/assets/img/<?= $kategori_img; ?>" class="card-img-top img-fluid" alt="<?= ucwords($kategori["name_category"]); ?>" style="height: 300px; object-fit: cover;">
+                <img src="<?= BASEURL ?>/assets/img/<?= $category["image_category"]; ?>" class="card-img-top img-fluid" alt="<?= ucwords($category["name_category"]); ?>" style="height: 300px; object-fit: cover;">
                 <div class="card-body">
-                  <h5 class="card-title"><?= $kategori_nama; ?></h5>
+                  <h5 class="card-title"><?= $category["name_category"]; ?></h5>
                   <p class="card-text">
-                    <?= $kategori_desc; ?>
+                    <?= $category["desc_category"]; ?>
                   </p>
                   <a href="#!" class="btn btn-outline-danger">Lihat Selengkapnya ></a>
                 </div>

@@ -3,12 +3,12 @@
   margin: 0;
 }
 
-.navbar {
-  background-color: rgba(248, 249, 250, 0.9);
+body {
+  font-family: 'Poppins', sans-serif!important;
 }
 
-body {
-  padding-top: 56px;
+.navbar {
+  background-color: rgba(248, 249, 250, 0.5);
 }
 
 .hero-section {
