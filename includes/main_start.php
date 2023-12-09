@@ -12,6 +12,7 @@ require_once("functions.php");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= $title; ?></title>
 
+  <link rel="icon" href="<?= BASEURL ?>/assets/img/logo/TasteTrekker-square.svg" type="image/x-icon">
   <link rel="stylesheet" href="<?= BASEURL ?>/assets/css/style-custom.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
