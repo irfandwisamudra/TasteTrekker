@@ -69,24 +69,6 @@ include "./includes/main_start.php";
   </div>
 </section>
 
-<script>
-  (function() {
-    'use strict'
-
-    var forms = document.querySelectorAll('.needs-validation')
-
-    Array.prototype.slice.call(forms)
-      .forEach(function(form) {
-        form.addEventListener('submit', function(event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })()
-</script>
+<script src="./assets/js/register.js"></script>
 
 <?php include "./includes/main_end.php"; ?>
