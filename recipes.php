@@ -16,7 +16,7 @@ if (!isset($_GET["recipe_id"])) {
 <?php if (!isset($_GET["recipe_id"])) : ?>
   <section class="menu-section py-5">
     <div class="container py-3">
-      <h2 class="text-center title">Daftar Resep</h2>
+      <h2 class="text-center title fw-bold">DAFTAR RESEP</h2>
       <div class="underline mx-auto"></div>
 
       <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center mt-4">
@@ -120,10 +120,12 @@ if (!isset($_GET["recipe_id"])) {
       <!-- Back to recipes -->
       <div class="row">
         <div class="col-12 text-center mt-4">
-          <a href="./recipes.php" class="btn btn-danger">
-            <i class="fa fa-backward" aria-hidden="true"></i>
-            Kembali ke Daftar Resep
+          <a href="./recipes.php" class="btn btn-outline-danger me-2 mb-2">
+            <i class="fa fa-backward" aria-hidden="true"></i> Kembali ke Daftar Resep
           </a>
+          <button class="btn btn-danger mb-2" onclick="addToCart()">
+            <i class="fas fa-cart-plus"></i> Tambahkan ke Keranjang
+          </button>
         </div>
       </div>
     </div>

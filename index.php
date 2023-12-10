@@ -3,8 +3,9 @@ $title = "Home - TasteTrekker";
 
 include "./includes/main_start.php";
 
-$menus = getAllMenus();
+$menus = getAllMenusWithRecipes();
 $categories = getAllCategories();
+$count_categories = countCategories();
 ?>
 
 <section class="hero-section min-vh-100 d-flex align-items-center">
@@ -104,9 +105,9 @@ $categories = getAllCategories();
                 <button class="btn btn-outline-danger" onclick="addToCart()">
                   <i class="fas fa-cart-plus"></i>
                 </button>
-                <button class="btn btn-outline-danger" onclick="viewRecipe()">
+                <a href="./recipes.php?recipe_id=<?= $menu["recipe_id"]; ?>" class="btn btn-outline-danger">
                   <i class="fas fa-book-open"></i>
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -121,28 +122,23 @@ $categories = getAllCategories();
     <h2 class="text-center title">Jelajahi kategori makanan bersama kami</h2>
     <div class="underline mx-auto"></div>
 
-    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center mt-4">
-      <?php foreach ($categories as $category) : ?>
-        <div class="col">
-          <div class="card h-100">
-            <!-- Category image-->
-            <img class="card-img-top" src="<?= BASEURL ?>/assets/img/<?= $category["image_category"]; ?>" class="card-img-top" alt="<?= ucwords($category["name_category"]); ?>" />
-            <!-- Category details-->
-            <div class="card-body p-4">
-              <div class="text-center">
-                <!-- Category name-->
-                <h5 class="fw-bolder"><?= $category["name_category"]; ?></h5>
-                <!-- Category description-->
-                <?= $category["desc_category"]; ?>
+    <div class="category-page-wrap padding-top-80 padding-bottom-50 mt-4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <?php foreach ($categories as $category) : ?>
+            <div class="col-lg-4 col-md-6 col-sm-10 col-12">
+              <div class="category-box-layout1">
+                <figure class="item-figure"><img src="<?= BASEURL ?>/assets/img/<?= $category["image_category"]; ?>" class="card-img-top" alt="<?= ucwords($category["name_category"]); ?>"></figure>
+                <div class="item-content">
+                  <h3 class="item-title"><a href="menu.php?category_id=<?= $category["category_id"]; ?>"><?= $category["name_category"]; ?></a></h3>
+                  <p class="card-text"><?= $category["desc_category"]; ?></p>
+                  <span class="sub-title"> <?= $count_categories; ?> Recipes</span>
+                </div>
               </div>
             </div>
-            <!-- Category actions-->
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-              <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="./menu.php?category_id=<?= $category["category_id"]; ?>">Lihat Selengkapnya</a></div>
-            </div>
-          </div>
+          <?php endforeach; ?>
         </div>
-      <?php endforeach; ?>
+      </div>
     </div>
   </div>
 </section>
