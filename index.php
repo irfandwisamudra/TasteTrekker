@@ -3,8 +3,8 @@ $title = "Home - TasteTrekker";
 
 include "./includes/main_start.php";
 
-$menus = getAllDataMenus();
-$categories = getAllDataCategories();
+$menus = getAllMenus();
+$categories = getAllCategories();
 ?>
 
 <section class="hero-section min-vh-100 d-flex align-items-center">
@@ -95,7 +95,7 @@ $categories = getAllDataCategories();
                 <!-- Menu name-->
                 <h5 class="fw-bolder"><?= $menu["name_menu"]; ?></h5>
                 <!-- Menu price-->
-                <?= $menu["price"]; ?>
+                Rp<?= number_format($menu["price"], 0, ',', '.'); ?>
               </div>
             </div>
             <!-- Menu actions-->
@@ -138,7 +138,7 @@ $categories = getAllDataCategories();
             </div>
             <!-- Category actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-              <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="./category.php?category_id=<?= $category["category_id"]; ?>">Lihat Selengkapnya</a></div>
+              <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="./menu.php?category_id=<?= $category["category_id"]; ?>">Lihat Selengkapnya</a></div>
             </div>
           </div>
         </div>

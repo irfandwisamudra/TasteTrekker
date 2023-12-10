@@ -6,7 +6,7 @@ include "./includes/main_start.php";
 ?>
 
 <?php
-$categories = getAllDataCategories();
+$categories = getAllCategories();
 ?>
 
 <H2 class="fw-bold text-center py-5">KATEGORI MENU</H2>
