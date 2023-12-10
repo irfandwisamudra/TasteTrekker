@@ -19,17 +19,17 @@ $categories = getAllCategories();
     <div class="carousel-item active">
       <div class="container">
         <div class="row justify-content-center">
-          <?php foreach ($category as $kategori) : ?>
+          <?php foreach ($categories as $category) : ?>
             <div class="col-lg-4 mb-5">
               <div class="card">
                 <img src="<?= BASEURL ?>/assets/img/<?= $category["image_category"]; ?>" class="card-img-top img-fluid" alt="<?= ucwords($category["name_category"]); ?>" style="height: 300px; object-fit: cover;">
-                <img src="assets/img/category/<?= $kategori['image_category']; ?>" class="card-img-top img-fluid" alt="Waterfall" style="height: 300px; object-fit: cover;">
+                <img src="assets/img/category/<?= $category['image_category']; ?>" class="card-img-top img-fluid" alt="Waterfall" style="height: 300px; object-fit: cover;">
                 <div class="card-body">
                   <h5 class="card-title"><?= $category["name_category"]; ?></h5>
                   <p class="card-text">
                     <?= $category["desc_category"]; ?>
                   </p>
-                  <a href="menu.php?category_id=<?= $kategori['category_id']; ?>" class="btn btn-outline-danger">Lihat Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
+                  <a href="menu.php?category_id=<?= $category['category_id']; ?>" class="btn btn-outline-danger">Lihat Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
                 </div>
               </div>
             </div>
