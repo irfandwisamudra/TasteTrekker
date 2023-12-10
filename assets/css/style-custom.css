@@ -70,91 +70,42 @@ footer .copyright {
 }
 
 /* Recipe section */
-#recipe {
+.recipe {
   background-color: #f1f1f1;
-  padding-top: 12px;
-  padding-bottom: 24px;
 }
 
-#recipe h2 {
-  color: #333;
-  font-size: 2em;
-  margin-bottom: 24px;
-  margin-top: 12px;
-}
-
-#recipe h3 {
+.recipe h3 {
   background-color: #f1f1f1;
-  margin-top: 24px;
 }
 
 .recipe-picture {
   max-width: 50%;
   height: auto;
-  margin-bottom: 24px;
-  margin-top: 6px;
-  box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.6);
 }
 
 .recipe-info .row {
-  margin-top: 12px;
-  padding-top: 6px;
-  padding-bottom: 6px;
   background-color: #f9f9f9;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
-}
-
-.recipe-info i {
-  color: #a44c9f;
 }
 
 .recipe-ingredients {
   background-color: #f9f9f9;
-  margin-top: 24px;
-}
-
-.ingredients-list dl {
-  display: inline-block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
 }
 
 .ingredients-list dt {
   width: 15%;
   float: left;
-  margin: 0 0 8px;
-  padding: 0 10px;
-  font-size: 13px;
-  line-height: 37px;
   background: #f9f9f9;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
 }
 
 .ingredients-list dd {
   width: 85%;
   float: left;
-  margin: 0 0 8px;
-  padding: 0 15px;
-  font-size: 13px;
-  line-height: 37px;
-  font-weight: 600;
-  background: #a44c9f;
   color: #f9f9f9;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
 }
 
 .recipe-directions ol {
   counter-reset: li;
   list-style: none;
-  padding: 0;
-  margin-bottom: 4em;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-.recipe-directions ol ol {
-  margin: 0 0 0 2em;
 }
 
 .recipe-directions li {
@@ -166,7 +117,6 @@ footer .copyright {
   color: #222;
   text-decoration: none;
   transition: all 0.3s ease-out;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
 }
 
 .recipe-directions li:hover {
@@ -180,7 +130,8 @@ footer .copyright {
   left: -2.5em;
   top: 50%;
   margin-top: -1em;
-  background: #a44c9f;
+  background: #dc3545;
+  border-radius: 5px;
   height: 2em;
   width: 2em;
   line-height: 2em;
@@ -201,5 +152,5 @@ footer .copyright {
 
 .recipe-directions li:hover:after {
   left: -0.5em;
-  border-left-color: #a44c9f;
+  border-left-color: #dc3545;
 }

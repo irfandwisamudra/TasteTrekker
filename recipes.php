@@ -51,37 +51,37 @@ if (!isset($_GET["recipe_id"])) {
     </div>
   </section>
 <?php else : ?>
-  <section id="recipe" class="py-5">
-    <div class="container">
+  <section class="recipe py-5">
+    <div class="container py-3">
       <div class="row">
         <!-- Title -->
         <div class="col-12">
-          <h2 class="mb-4"><?= $recipe["title"]; ?></h2>
+          <h2 class="my-4"><?= $recipe["title"]; ?></h2>
         </div>
       </div>
       <div class="row">
         <!-- Picture -->
         <div class="col-md-6">
-          <img src="<?= BASEURL ?>/assets/img/<?= $recipe["image_menu"]; ?>" alt="<?= ucwords($recipe["name_menu"]); ?>" class="recipe-picture rounded" />
+          <img src="<?= BASEURL ?>/assets/img/<?= $recipe["image_menu"]; ?>" alt="<?= ucwords($recipe["name_menu"]); ?>" class="recipe-picture shadow rounded mb-3" />
         </div>
         <!-- Info -->
         <div class="col-md-6">
           <div class="recipe-info">
-            <h3 class="mb-4">Info</h3>
-            <!-- Time -->
-            <div class="row mb-2">
+            <h3 class="my-4">Info</h3>
+            <!-- Waktu -->
+            <div class="row border-bottom border-danger border-1 shadow rounded mx-0 my-2 py-2">
               <div class="col-2 text-center">
-                <i class="fa fa-clock" aria-hidden="true"></i>
+                <i class="fa fa-clock text-danger" aria-hidden="true"></i>
               </div>
-              <div class="col-6">Time</div>
+              <div class="col-6">Waktu</div>
               <div class="col-4"><?= $recipe["timing"]; ?></div>
             </div>
-            <!-- Serves -->
-            <div class="row">
+            <!-- Porsi -->
+            <div class="row border-bottom border-danger border-1 shadow rounded mx-0 my-2 py-2">
               <div class="col-2 text-center">
-                <i class="fa fa-users" aria-hidden="true"></i>
+                <i class="fa fa-users text-danger" aria-hidden="true"></i>
               </div>
-              <div class="col-6">Servings</div>
+              <div class="col-6">Porsi</div>
               <div class="col-4"><?= $recipe["serving"]; ?></div>
             </div>
           </div>
@@ -91,14 +91,14 @@ if (!isset($_GET["recipe_id"])) {
       <div class="row">
         <div class="col-12">
           <div class="recipe-ingredients">
-            <h3 class="mb-4">Ingredients</h3>
+            <h3 class="my-3">Bahan-bahan</h3>
             <dl class="ingredients-list">
               <?php
               foreach ($ingredients as $ingredient) :
                 preg_match_all('/(\d+)\s+(.+)/', $ingredient["ing_name"], $matches);
               ?>
-                <dt class="mb-2"><?= $matches[1][0]; ?></dt>
-                <dd class="mb-2"><?= $matches[2][0]; ?></dd>
+                <dt class="border-bottom border-danger border-1 px-3 py-2 mb-2"><?= $matches[1][0]; ?></dt>
+                <dd class="border-bottom border-danger border-1 px-3 py-2 mb-2 bg-danger"><?= $matches[2][0]; ?></dd>
               <?php endforeach; ?>
             </dl>
           </div>
@@ -108,16 +108,11 @@ if (!isset($_GET["recipe_id"])) {
       <div class="row">
         <div class="col-12">
           <div class="recipe-directions">
-            <h3 class="mb-4">Directions</h3>
-            <ol>
-              <li>Preheat oven to 325.</li>
-              <li>Place ribs meaty side up in an ungreased baking dish.</li>
-              <li>Sprinkle with garlic powder, salt, and pepper.</li>
-              <li>Cover with foil and bake for 2 hours.</li>
-              <li>Drain liquid.</li>
-              <li>Brush ribs generously with BBQ sauce.</li>
-              <li>Bake uncovered for an additional 30 minutes in oven or on the BBQ.</li>
-              <li>Add more sauce half-way through.</li>
+            <h3 class="my-3">Cara Pembuatan</h3>
+            <ol class="p-0">
+              <?php foreach ($methods as $method) : ?>
+                <li class="border-bottom border-danger border-1 rounded"><?= $method["name_method"]; ?></li>
+              <?php endforeach; ?>
             </ol>
           </div>
         </div>
@@ -125,9 +120,9 @@ if (!isset($_GET["recipe_id"])) {
       <!-- Back to recipes -->
       <div class="row">
         <div class="col-12 text-center mt-4">
-          <a href="./recipes.php" class="btn btn-primary">
+          <a href="./recipes.php" class="btn btn-danger">
             <i class="fa fa-backward" aria-hidden="true"></i>
-            Go back to recipes.
+            Kembali ke Daftar Resep
           </a>
         </div>
       </div>
