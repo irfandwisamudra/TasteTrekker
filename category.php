@@ -1,5 +1,5 @@
 <?php
-$title = "Home - Category";
+$title = "Category - TasteTrekker";
 
 include "./includes/main_start.php";
 

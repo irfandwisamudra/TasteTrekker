@@ -100,7 +100,14 @@ $categories = getAllDataCategories();
             </div>
             <!-- Menu actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-              <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="#">Add to Cart</a></div>
+              <div class="d-flex justify-content-between">
+                <button class="btn btn-outline-danger" onclick="addToCart()">
+                  <i class="fas fa-cart-plus"></i>
+                </button>
+                <button class="btn btn-outline-danger" onclick="viewRecipe()">
+                  <i class="fas fa-book-open"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -131,7 +138,7 @@ $categories = getAllDataCategories();
             </div>
             <!-- Category actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-              <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="./category.php?category_id=<?= $category["category_id"]; ?>">See More</a></div>
+              <div class="text-center"><a class="btn btn-outline-danger mt-auto" href="./category.php?category_id=<?= $category["category_id"]; ?>">Lihat Selengkapnya</a></div>
             </div>
           </div>
         </div>
