@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparant fixed-top">
     <div class="container">
       <a class="navbar-brand" href="<?= BASEURL ?>/index.php">
         <img src="<?= BASEURL ?>/assets/img/logo/TasteTrekker.svg" alt="Logo TasteTrekker" height="30px">
@@ -32,7 +32,7 @@
             <a class="btn btn-outline-danger mx-2" href="<?= BASEURL ?>/login.php"">Login</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-danger" href="<?= BASEURL ?>/login.php"">Sign Up</a>
+            <a class="btn btn-danger" href="<?= BASEURL ?>/sign_up.php"">Sign Up</a>
           </li>
         </ul>
       </div>

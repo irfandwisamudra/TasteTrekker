@@ -3,10 +3,240 @@
   margin: 0;
 }
 
+body {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.navbar {
+  background-color: rgba(248, 249, 250, 0.5);
+}
+
+.underline {
+  height: 5px;
+  width: 10rem;
+  background-color: #dc3545;
+}
+
 footer {
   background-color: rgb(255, 232, 236);
 }
 
 footer .copyright {
   background-color: rgb(255, 72, 72);
+}
+
+.hero-section {
+  background-color: #f8f9fa;
+}
+
+.feature-section,
+.register-section {
+  background-color: #e9ecef;
+}
+
+.menu-section {
+  background-color: #ced4da;
+}
+
+.category-section {
+  background-color: #dee2e6;
+}
+
+/* === Recipe Section === */
+.recipe {
+  background-color: #f1f1f1;
+}
+
+.recipe h3 {
+  background-color: #f1f1f1;
+}
+
+.recipe-picture {
+  width: auto;
+  max-width: 100%;
+  max-height: 400px;
+}
+
+.recipe-info .row {
+  background-color: #f9f9f9;
+}
+
+.recipe-ingredients {
+  background-color: #f9f9f9;
+}
+
+.ingredients-list dt {
+  width: 15%;
+  float: left;
+  background: #f9f9f9;
+}
+
+.ingredients-list dd {
+  width: 85%;
+  float: left;
+  color: #f9f9f9;
+}
+
+.recipe-directions ol {
+  counter-reset: li;
+  list-style: none;
+}
+
+.recipe-directions li {
+  position: relative;
+  display: block;
+  padding: 0.4em 0.4em 0.4em 0.8em;
+  margin: 0.5em 0 0.5em 2.5em;
+  background: #f9f9f9;
+  color: #222;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+
+.recipe-directions li:hover {
+  background: #f1f1f1;
+}
+
+.recipe-directions li:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -2.5em;
+  top: 50%;
+  margin-top: -1em;
+  background: #dc3545;
+  border-radius: 5px;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  text-align: center;
+  font-weight: bold;
+  color: #f9f9f9;
+}
+
+.recipe-directions li:after {
+  position: absolute;
+  content: "";
+  border: 0.5em solid transparent;
+  left: -1em;
+  top: 50%;
+  margin-top: -0.5em;
+  transition: all 0.3s ease-out;
+}
+
+.recipe-directions li:hover:after {
+  left: -0.5em;
+  border-left-color: #dc3545;
+}
+
+/* === Category Section === */
+.category-box-layout1 {
+  background-color: #ffffff;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.category-box-layout1:after {
+  opacity: 0.8;
+  background-image: -webkit-gradient(
+    linear,
+    0 0,
+    0 100%,
+    from(#111),
+    to(transparent)
+  );
+  background-image: -webkit-linear-gradient(transparent, #111);
+  background-image: -moz-linear-gradient(transparent, #111),
+    -moz-linear-gradient(transparent, #111);
+  background-image: -o-linear-gradient(transparent, #111),
+    -o-linear-gradient(transparent, #111);
+  background-image: linear-gradient(transparent, #111),
+    linear-gradient(transparent, #111);
+  content: "";
+  height: 80%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.category-box-layout1 .item-figure {
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+.category-box-layout1 .item-figure img {
+  transform: scale(1);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.category-box-layout1 .item-content {
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  position: absolute;
+  padding: 35px;
+}
+
+.category-box-layout1 .item-content .item-title {
+  font-weight: 700;
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.category-box-layout1 .item-content .item-title a {
+  color: #ffffff;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.category-box-layout1 .item-content .item-title:hover a {
+  color: #ff4a52;
+}
+
+.category-box-layout1 .item-content .card-text {
+  color: #cccccc;
+}
+
+.category-box-layout1 .item-content .sub-title {
+  color: #cccccc;
+  font-size: 18px;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 0;
+  padding-bottom: 15px;
+}
+
+.category-box-layout1 .item-content .sub-title:before {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: #dc3545;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.category-box-layout1:hover:after {
+  height: 100%;
+  opacity: 1;
+}
+
+.category-box-layout1:hover .item-figure img {
+  transform: scale(1.2);
 }

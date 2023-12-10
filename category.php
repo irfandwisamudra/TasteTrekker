@@ -1,12 +1,12 @@
 <?php
-$title = "Home - Category";
+$title = "Category - TasteTrekker";
 
 include "./includes/main_start.php";
 
 ?>
 
 <?php
-$category = getAllDataCategories();
+$categories = getAllCategories();
 ?>
 
 <H2 class="fw-bold text-center py-5">KATEGORI MENU</H2>
@@ -22,11 +22,12 @@ $category = getAllDataCategories();
           <?php foreach ($category as $kategori) : ?>
             <div class="col-lg-4 mb-5">
               <div class="card">
+                <img src="<?= BASEURL ?>/assets/img/<?= $category["image_category"]; ?>" class="card-img-top img-fluid" alt="<?= ucwords($category["name_category"]); ?>" style="height: 300px; object-fit: cover;">
                 <img src="assets/img/category/<?= $kategori['image_category']; ?>" class="card-img-top img-fluid" alt="Waterfall" style="height: 300px; object-fit: cover;">
                 <div class="card-body">
-                  <h5 class="card-title"><?= $kategori['name_category']; ?></h5>
+                  <h5 class="card-title"><?= $category["name_category"]; ?></h5>
                   <p class="card-text">
-                    <?= $kategori['desc_category']; ?>
+                    <?= $category["desc_category"]; ?>
                   </p>
                   <a href="menu.php?category_id=<?= $kategori['category_id']; ?>" class="btn btn-outline-danger">Lihat Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
                 </div>
