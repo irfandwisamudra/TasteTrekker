@@ -11,6 +11,12 @@ body {
   background-color: rgba(248, 249, 250, 0.5);
 }
 
+.underline {
+  height: 5px;
+  width: 10rem;
+  background-color: #dc3545;
+}
+
 footer {
   background-color: rgb(255, 232, 236);
 }
@@ -220,7 +226,7 @@ footer .copyright {
   content: "";
   height: 2px;
   width: 100%;
-  background-color: #ff4a52;
+  background-color: #dc3545;
   bottom: 0;
   left: 0;
   z-index: 2;

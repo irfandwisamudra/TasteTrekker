@@ -36,10 +36,11 @@ $count_categories = countCategories();
 
 <section class="feature-section pt-5" id="feature-section">
   <div class="container px-lg-5 py-3">
-    <h2 class="text-center title mb-4">Keistimewaan Kami</h2>
+    <h2 class="text-center title">Keistimewaan Kami</h2>
     <div class="underline mx-auto"></div>
+
     <!-- Page Features-->
-    <div class="row gx-lg-5">
+    <div class="row gx-lg-5 mt-4">
       <div class="col-lg-4 mb-5">
         <div class="card bg-light border-0 h-100">
           <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
