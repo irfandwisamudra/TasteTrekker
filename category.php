@@ -18,22 +18,17 @@ $category = getAllDataCategories();
     <!-- Single item -->
     <div class="carousel-item active">
       <div class="container">
-        <div class="row">
-          <?php foreach ($category as $kategori) :
-            $kategori_id = $kategori['category_id'];
-            $kategori_nama = $kategori['category_name'];
-            $kategori_desc = $kategori['category_desc'];
-            $kategori_img = $kategori['category_img'];
-          ?>
+        <div class="row justify-content-center">
+          <?php foreach ($category as $kategori) : ?>
             <div class="col-lg-4 mb-5">
               <div class="card">
-                <img src="<?= $kategori_img; ?>" class="card-img-top img-fluid" alt="Waterfall" style="height: 300px; object-fit: cover;">
+                <img src="assets/img/category/<?= $kategori['image_category']; ?>" class="card-img-top img-fluid" alt="Waterfall" style="height: 300px; object-fit: cover;">
                 <div class="card-body">
-                  <h5 class="card-title"><?= $kategori_nama; ?></h5>
+                  <h5 class="card-title"><?= $kategori['name_category']; ?></h5>
                   <p class="card-text">
-                    <?= $kategori_desc; ?>
+                    <?= $kategori['desc_category']; ?>
                   </p>
-                  <a href="#!" class="btn btn-outline-danger">Lihat Selengkapnya ></a>
+                  <a href="menu.php?category_id=<?= $kategori['category_id']; ?>" class="btn btn-outline-danger">Lihat Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
                 </div>
               </div>
             </div>
