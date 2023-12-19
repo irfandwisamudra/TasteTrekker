@@ -45,7 +45,7 @@ function insertUser($data)
 {
   return mysqli_query($GLOBALS["db"], "INSERT INTO user (user_id, username, email, `password`, image_user, `level`)
     VALUES ('" . $GLOBALS['uuid'] . "',
-    '" . htmlspecialchars($data['username']) . "',
+    '" . strtolower(str_replace(' ', '', stripslashes(htmlspecialchars($data['username'])))) . "',
     '" . htmlspecialchars($data['email']) . "', 
     '" . password_hash($data['password'], PASSWORD_BCRYPT) . "', 
     'default.png', 

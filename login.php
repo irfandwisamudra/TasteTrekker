@@ -14,6 +14,12 @@ include "./includes/main_start.php";
               <img src="<?= BASEURL ?>/assets/img/logo/TasteTrekker-square.svg" alt="TasteTrekker-logo" class="img-fluid">
             </div>
             <h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
+
+            <?php if (isset($_SESSION["registerSuccess"])) : ?>
+              <div class="alert alert-success"><?= $_SESSION["registerSuccess"]; ?></div>
+              <?php unset($_SESSION["registerSuccess"]); ?>
+            <?php endif; ?>
+
             <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
               <div class="mb-3">
                 <label class="form-label mb-2" for="email">E-Mail Address</label>

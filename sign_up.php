@@ -25,6 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["signup"])) {
                 <div class="invalid-feedback">
                   Username harus diisi
                 </div>
+                <?php if (isset($_SESSION["usernameExists"])) : ?>
+                  <small class="text-danger"><?= $_SESSION["usernameExists"]; ?></small>
+                  <?php unset($_SESSION["usernameExists"]); ?>
+                <?php endif; ?>
               </div>
 
               <div class="mb-3">
@@ -33,6 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["signup"])) {
                 <div class="invalid-feedback">
                   Email tidak valid
                 </div>
+                <?php if (isset($_SESSION["emailExists"])) : ?>
+                  <small class="text-danger"><?= $_SESSION["emailExists"]; ?></small>
+                  <?php unset($_SESSION["emailExists"]); ?>
+                <?php endif; ?>
               </div>
 
               <div class="mb-3">

@@ -5,20 +5,20 @@ require_once("database.php");
 function register($data)
 {
   if (isUsernameExists($data['username'])) {
-    $error = "Username sudah digunakan";
-    return;
+    $_SESSION["usernameExists"] = "Username sudah digunakan";
   }
 
   if (isEmailExists($data['email'])) {
-    $error = "Email sudah digunakan";
+    $_SESSION["emailExists"] = "Email sudah digunakan";
+  }
+
+  if (isset($_SESSION["usernameExists"]) || isset($_SESSION["emailExists"])) {
     return;
   }
 
   if (insertUser($data)) {
-    $_SESSION["username"] = $data['username'];
-    $_SESSION["level"] = getLevelByUsername($data['username']);
-    $_SESSION["login"] = true;
     unset($_POST);
+    $_SESSION["registerSuccess"] = "Akun berhasil terdaftar. Silahkan Login.";
     header("Location: " . BASEURL . "/login.php");
     exit;
   }
