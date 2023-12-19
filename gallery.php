@@ -14,13 +14,14 @@ $menus = getAllMenus();
     <div class="row justify-content-center mt-4">
       <?php foreach ($menus as $menu) : ?>
         <div class="col-lg-4 col-sm-6">
-          <div class="thumbnail">
-            <img class="img-fluid" src="<?= BASEURL ?>/assets/img/<?= $menu["image_menu"]; ?>" alt="<?= ucwords($menu["name_menu"]); ?>">
+          <div class="thumbnail py-2">
+            <img class="img-fluid rounded" src="<?= BASEURL ?>/assets/img/menu/<?= $menu["image_menu"]; ?>" alt="<?= ucwords($menu["name_menu"]); ?>" style="width: 100%; height: 200px; object-fit: cover;">
           </div>
         </div>
       <?php endforeach; ?>
     </div>
   </div>
 </section>
+
 
 <?php include "./includes/main_end.php"; ?>

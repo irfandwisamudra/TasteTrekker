@@ -16,19 +16,22 @@ function getAllCategories()
   return mysqli_query($GLOBALS["db"], "SELECT * FROM category")->fetch_all(MYSQLI_ASSOC);
 }
 
-function countCategories()
+function getAllCategoriesWithCountRecipes()
 {
-  return intVal(mysqli_query($GLOBALS["db"], "SELECT COUNT(category_id) FROM category")->fetch_row()[0]);
+  return mysqli_query($GLOBALS["db"], "SELECT c.*, COUNT(m.menu_id) AS count_recipes
+  FROM category c LEFT JOIN menu m
+  ON c.category_id = m.category_id
+  GROUP BY c.category_id")->fetch_all(MYSQLI_ASSOC);
 }
 
 function getAllMenusWithRecipes()
 {
-  return mysqli_query($GLOBALS["db"], "SELECT * FROM menu INNER JOIN recipe ON menu.menu_id = recipe.menu_id")->fetch_all(MYSQLI_ASSOC);
+  return mysqli_query($GLOBALS["db"], "SELECT * FROM menu m INNER JOIN recipe r ON m.menu_id = r.menu_id")->fetch_all(MYSQLI_ASSOC);
 }
 
 function getRecipeWithMenuByRecipeId($recipe_id)
 {
-  return mysqli_query($GLOBALS["db"], "SELECT * FROM menu INNER JOIN recipe ON menu.menu_id = recipe.menu_id WHERE recipe.recipe_id='$recipe_id'")->fetch_assoc();
+  return mysqli_query($GLOBALS["db"], "SELECT * FROM menu m INNER JOIN recipe r ON m.menu_id = r.menu_id WHERE r.recipe_id='$recipe_id'")->fetch_assoc();
 }
 
 function getIngredientsByRecipeId($recipe_id)
@@ -63,4 +66,9 @@ function isUsernameExists($username) {
 
 function isEmailExists($email) {
   return intval(mysqli_fetch_assoc(mysqli_query($GLOBALS["db"], "SELECT COUNT(*) as count FROM user WHERE email = '" . mysqli_real_escape_string($GLOBALS["db"], $email) . "'"))['count']) > 0;
+}
+
+function getUserByEmail($email)
+{
+  return mysqli_query($GLOBALS["db"], "SELECT * FROM user WHERE email='$email'")->fetch_all(MYSQLI_ASSOC)[0];
 }

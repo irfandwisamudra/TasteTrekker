@@ -1,3 +1,4 @@
+  <?php $user = getUserByEmail($_SESSION["email"]); ?>
   <nav class="navbar navbar-expand-lg navbar-light bg-transparant fixed-top">
     <div class="container">
       <a class="navbar-brand" href="<?= BASEURL ?>/index.php">
@@ -27,14 +28,35 @@
             </form>
           </li>
         </ul>
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="btn btn-outline-danger mx-2" href="<?= BASEURL ?>/login.php"">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-danger" href="<?= BASEURL ?>/sign_up.php"">Sign Up</a>
-          </li>
-        </ul>
+        <?php if (!isset($_SESSION["login"]) && $_SESSION != true) : ?>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="btn btn-outline-danger mx-2" href="<?= BASEURL ?>/login.php">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-danger" href="<?= BASEURL ?>/sign_up.php">Sign Up</a>
+            </li>
+          </ul>
+        <?php else : ?>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle p-0" href="" id="userDropdown" role="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $user["username"]; ?></span>
+                <img class="img-profile rounded-circle img-fluid" src="<?= BASEURL ?>/assets/img/profile/<?= $user["image_user"]; ?>" width="35" height="35">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="<?= BASEURL ?>/profile/index.php">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item" href="<?= BASEURL ?>/logout.php" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+        <?php endif; ?>
       </div>
     </div>
   </nav>

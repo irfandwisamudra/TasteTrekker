@@ -4,8 +4,7 @@ $title = "Home - TasteTrekker";
 include "./includes/main_start.php";
 
 $menus = getAllMenusWithRecipes();
-$categories = getAllCategories();
-$count_categories = countCategories();
+$categories = getAllCategoriesWithCountRecipes();
 ?>
 
 <section class="hero-section min-vh-100 d-flex align-items-center">
@@ -119,29 +118,31 @@ $count_categories = countCategories();
 </section>
 
 <section class="category-section py-5" id="category-section">
-  <div class="container py-3">
-    <h2 class="text-center title">Jelajahi kategori makanan bersama kami</h2>
-    <div class="underline mx-auto"></div>
+    <div class="container py-3">
+        <h2 class="text-center title">Jelajahi kategori makanan bersama kami</h2>
+        <div class="underline mx-auto"></div>
 
-    <div class="category-page-wrap padding-top-80 padding-bottom-50 mt-4">
-      <div class="container">
-        <div class="row justify-content-center">
-          <?php foreach ($categories as $category) : ?>
-            <div class="col-lg-4 col-md-6 col-sm-10 col-12">
-              <div class="category-box-layout1">
-                <figure class="item-figure"><img src="<?= BASEURL ?>/assets/img/<?= $category["image_category"]; ?>" class="card-img-top" alt="<?= ucwords($category["name_category"]); ?>"></figure>
-                <div class="item-content">
-                  <h3 class="item-title"><a href="menu.php?category_id=<?= $category["category_id"]; ?>"><?= $category["name_category"]; ?></a></h3>
-                  <p class="card-text"><?= $category["desc_category"]; ?></p>
-                  <span class="sub-title"> <?= $count_categories; ?> Recipes</span>
+        <div class="category-page-wrap padding-top-80 padding-bottom-50 mt-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <?php foreach ($categories as $category) : ?>
+                        <div class="col-lg-4 col-md-6 col-sm-10 col-12">
+                            <div class="category-box-layout1">
+                                <figure class="item-figure">
+                                    <img src="<?= BASEURL ?>/assets/img/category/<?= $category["image_category"]; ?>" class="card-img-top img-fluid" alt="<?= ucwords($category["name_category"]); ?>" style="object-fit: cover; object-position: center; height: 400px;">
+                                </figure>
+                                <div class="item-content">
+                                    <h3 class="item-title"><a href="menu.php?category_id=<?= $category["category_id"]; ?>"><?= $category["name_category"]; ?></a></h3>
+                                    <p class="card-text"><?= $category["desc_category"]; ?></p>
+                                    <span class="sub-title"> <?= $category["count_recipes"]; ?> Recipes</span>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
-              </div>
             </div>
-          <?php endforeach; ?>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <?php include "./includes/main_end.php"; ?>
