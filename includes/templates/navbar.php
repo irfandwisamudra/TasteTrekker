@@ -1,4 +1,3 @@
-  <?php $user = getUserByEmail($_SESSION["email"]); ?>
   <nav class="navbar navbar-expand-lg navbar-light bg-transparant fixed-top">
     <div class="container">
       <a class="navbar-brand" href="<?= BASEURL ?>/index.php">
@@ -28,7 +27,7 @@
             </form>
           </li>
         </ul>
-        <?php if (!isset($_SESSION["login"]) && $_SESSION != true) : ?>
+        <?php if (!isset($_SESSION["login"]) || $_SESSION["login"] != true) : ?>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="btn btn-outline-danger mx-2" href="<?= BASEURL ?>/login.php">Login</a>
@@ -37,7 +36,8 @@
               <a class="btn btn-danger" href="<?= BASEURL ?>/sign_up.php">Sign Up</a>
             </li>
           </ul>
-        <?php else : ?>
+        <?php else :
+          $user = getUserByEmail($_SESSION["email"]); ?>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle p-0" href="" id="userDropdown" role="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
