@@ -2,6 +2,10 @@
 $title = "Sign Up - TasteTrekker";
 
 include "./includes/main_start.php";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["signup"])) {
+  register($_POST);
+}
 ?>
 
 <section class="register-section min-vh-100 py-5">
@@ -52,7 +56,7 @@ include "./includes/main_start.php";
               </p>
 
               <div class="align-items-center d-flex">
-                <button type="submit" class="btn btn-primary ms-auto">
+                <button type="submit" class="btn btn-primary ms-auto" name="signup">
                   <i class="fas fa-sign-in-alt"></i> Sign Up
                 </button>
               </div>
