@@ -2,6 +2,33 @@
 $title = "Login - TasteTrekker";
 
 include "./includes/main_start.php";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if (validateEmail($_POST)) {
+    if (validatePassword($_POST)) {
+      $_SESSION["email"] = $_POST["email"];
+      $_SESSION["level"] = getLevelByEmail($_POST["email"]);
+      $_SESSION["login"] = true;
+      if (isset($_POST['remember'])) {
+        $userData = getUserDataHighlight($_POST['email']);
+        setcookie('email', $_POST['email'], time() + 60 * 60 * 24);
+        setcookie('key', password_hash($userData['username'], PASSWORD_BCRYPT));
+      }
+      unset($_POST);
+      if ($_SESSION["level"] != 1) {
+        header("Location: " . BASEURL . "/index.php");
+        exit;
+      } else {
+        header("Location: " . BASEURL . "/admin/index.php");
+        exit;
+      }
+    } else {
+      $error = "Password Anda salah!";
+    }
+  } else {
+    $error = "Email tidak tersedia!";
+  }
+}
 ?>
 
 <section class="register-section min-vh-100 py-5">
@@ -18,6 +45,8 @@ include "./includes/main_start.php";
             <?php if (isset($_SESSION["registerSuccess"])) : ?>
               <div class="alert alert-success"><?= $_SESSION["registerSuccess"]; ?></div>
               <?php unset($_SESSION["registerSuccess"]); ?>
+            <?php elseif (isset($error)) : ?>
+              <div class="alert alert-danger"><?= $error; ?></div>
             <?php endif; ?>
 
             <form method="POST" class="needs-validation" novalidate="" autocomplete="off">

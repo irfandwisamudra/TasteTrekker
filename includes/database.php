@@ -52,9 +52,9 @@ function insertUser($data)
     '0' )");
 }
 
-function getLevelByUsername($username)
+function getLevelByEmail($email)
 {
-  return intVal(mysqli_query($GLOBALS["db"], "SELECT `level` FROM user WHERE username = $username")->fetch_row()[0]);
+  return intVal(mysqli_query($GLOBALS["db"], "SELECT `level` FROM user WHERE email = '$email'")->fetch_row()[0]);
 }
 
 function isUsernameExists($username) {
