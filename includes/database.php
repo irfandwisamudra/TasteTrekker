@@ -1,5 +1,10 @@
 <?php
 require_once("base.php");
+require_once(__DIR__ . '/../assets/libs/vendor/autoload.php');
+
+use Ramsey\Uuid\Uuid;
+
+$GLOBALS["uuid"] = substr(Uuid::uuid4()->toString(), -10);
 
 function getAllMenus()
 {
@@ -38,16 +43,18 @@ function getMethodsByRecipeId($recipe_id)
 
 function insertUser($data)
 {
-  return mysqli_query($GLOBALS["db"], "INSERT INTO user (username, email, `password`, `level`)
-    VALUES ('" . htmlspecialchars($data['username']) . "',
+  return mysqli_query($GLOBALS["db"], "INSERT INTO user (user_id, username, email, `password`, image_user, `level`)
+    VALUES ('" . $GLOBALS['uuid'] . "',
+    '" . htmlspecialchars($data['username']) . "',
     '" . htmlspecialchars($data['email']) . "', 
     '" . password_hash($data['password'], PASSWORD_BCRYPT) . "', 
+    'default.png', 
     '0' )");
 }
 
-function getLevelByUserId($user_id)
+function getLevelByUsername($username)
 {
-  return intVal(mysqli_query($GLOBALS["db"], "SELECT `level` FROM user WHERE user_id = $user_id")->fetch_row()[0]);
+  return intVal(mysqli_query($GLOBALS["db"], "SELECT `level` FROM user WHERE username = $username")->fetch_row()[0]);
 }
 
 function isUsernameExists($username) {

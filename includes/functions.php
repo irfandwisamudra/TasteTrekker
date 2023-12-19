@@ -16,10 +16,10 @@ function register($data)
 
   if (insertUser($data)) {
     $_SESSION["username"] = $data['username'];
-    $_SESSION["level"] = getLevelByUserId($data['username']);
+    $_SESSION["level"] = getLevelByUsername($data['username']);
     $_SESSION["login"] = true;
     unset($_POST);
-    header("Location: " . BASEURL . "/index.php");
+    header("Location: " . BASEURL . "/login.php");
     exit;
   }
 }
