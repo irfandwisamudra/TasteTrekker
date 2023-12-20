@@ -23,6 +23,7 @@ require_once("functions.php");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <?php else : ?>
     <link href="<?= BASEURL ?>/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css">
   <?php endif; ?>
 </head>
 
@@ -34,5 +35,6 @@ require_once("functions.php");
       <?php
       $user = getUserByEmail($_SESSION["email"]);
       require_once("templates/navbar-admin.php");
+      require_once("templates/sidebar-admin.php");
       ?>
     <?php endif; ?>
