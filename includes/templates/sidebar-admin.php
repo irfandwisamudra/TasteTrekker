@@ -39,9 +39,5 @@
         </ul>
       </li>
     </ul>
-
-    <div class="copyright">
-      <p><strong>TasteTrekker - Restaurant Admin</strong> © 2023 All Rights Reserved</p>
-    </div>
   </div>
 </div>

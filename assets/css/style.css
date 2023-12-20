@@ -8955,8 +8955,8 @@ a {
 .footer {
   padding-left: 17.1875rem;
   background-color: #fbfbfb; }
-  .footer .copyright {
-    padding: 0.9375rem; }
+  /* .footer .copyright {
+    padding: 0.9375rem; } */
     .footer .copyright p {
       text-align: center;
       margin: 0; }
@@ -11990,9 +11990,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     justify-content: center; }
   [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header .nav-control .hamburger .line {
     background-color: #2f4cdd !important; }
-[data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .copyright,
+/* [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .copyright,
 [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .add-menu-sidebar {
-  display: none; }
+  display: none; } */
 [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .header {
   padding-left: 5rem;
   width: 100%; }
@@ -12146,9 +12146,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     width: 5rem;
     overflow: visible;
     position: absolute; }
-    [data-sidebar-style="mini"] .deznav .copyright,
+    /* [data-sidebar-style="mini"] .deznav .copyright,
     [data-sidebar-style="mini"] .deznav .add-menu-sidebar {
-      display: none; }
+      display: none; } */
     [data-sidebar-style="mini"] .deznav .nav-text {
       display: none; }
     [data-sidebar-style="mini"] .deznav .slimScrollDiv,
