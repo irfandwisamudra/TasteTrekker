@@ -26,6 +26,10 @@ footer .copyright {
   background-color: rgb(255, 72, 72);
 }
 
+.footer .copyright .bi {
+  font-size: 1.5rem;
+}
+
 .hero-section {
   background-color: #f8f9fa;
 }
@@ -240,4 +244,10 @@ footer .copyright {
 
 .category-box-layout1:hover .item-figure img {
   transform: scale(1.2);
+}
+
+@media only screen and (max-width: 575px) {
+  .footer .copyright .bi {
+    font-size: 1rem;
+  }
 }

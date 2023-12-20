@@ -1,4 +1,4 @@
-<footer class="border-top">
+<footer class="footer border-top">
   <div class="container">
     <div class="row row-cols-1 row-cols-md-5 py-5">
       <div class="col col-md-5 me-md-auto mb-3">
@@ -37,12 +37,12 @@
 
   <div class="copyright border-top">
     <div class="container">
-      <div class="col col-md-12 d-flex flex-column flex-sm-row justify-content-between py-4">
+      <div class="col col-md-12 d-flex flex-column flex-sm-row justify-content-between align-items-center py-4">
         <p class="text-light">&copy; 2023 TasteTrekker. All rights reserved.</p>
-        <ul class="list-unstyled d-flex">
-          <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-twitter" style="font-size: 24px;"></i></a></li>
-          <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-instagram" style="font-size: 24px;"></i></a></li>
-          <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-facebook" style="font-size: 24px;"></i></a></li>
+        <ul class="list-unstyled d-flex mb-0">
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-twitter"></i></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-instagram"></i></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><i class="bi bi-facebook"></i></a></li>
         </ul>
       </div>
     </div>
