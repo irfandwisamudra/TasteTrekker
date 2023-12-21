@@ -4,7 +4,7 @@ $title = "Daftar Resep - TasteTrekker";
 include "./includes/main_start.php";
 
 if (!isset($_GET["recipe_id"])) {
-  $menus = getAllMenusWithRecipes();
+  $recipes = getAllRecipesWithMenu();
 } else {
   $recipe_id = $_GET["recipe_id"];
   $recipe = getRecipeWithMenuByRecipeId($recipe_id);
@@ -19,35 +19,39 @@ if (!isset($_GET["recipe_id"])) {
       <h2 class="text-center title fw-bold">DAFTAR RESEP</h2>
       <div class="underline mx-auto"></div>
 
-      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center mt-4">
-        <?php foreach ($menus as $menu) : ?>
-          <div class="col">
-            <div class="card h-100">
-              <!-- Menu image-->
-              <img class="card-img-top" src="<?= BASEURL ?>/assets/img/<?= $menu["image_menu"]; ?>" class="card-img-top" alt="<?= ucwords($menu["name_menu"]); ?>" />
-              <!-- Menu details-->
-              <div class="card-body p-4">
-                <div class="text-center">
-                  <!-- Recipe title-->
-                  <h5 class="fw-bolder"><?= $menu["title"]; ?></h5>
-                  <!-- Recipe serving-->
-                  <p class="card-text mb-0">Porsi: <?= $menu["serving"]; ?></p>
-                  <!-- Recipe timing-->
-                  <p class="card-text mb-0">Waktu: <?= $menu["timing"]; ?></p>
+      <?php if ($recipes !== NULL) : ?>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center mt-4">
+          <?php foreach ($recipes as $recipe) : ?>
+            <div class="col">
+              <div class="card h-100">
+                <!-- Menu image-->
+                <img class="card-img-top" src="<?= BASEURL ?>/assets/img/menu/<?= $recipe["image_menu"]; ?>" class="card-img-top" alt="<?= ucwords($recipe["name_menu"]); ?>" />
+                <!-- Menu details-->
+                <div class="card-body p-4">
+                  <div class="text-center">
+                    <!-- Recipe title-->
+                    <h5 class="fw-bolder"><?= $recipe["title"]; ?></h5>
+                    <!-- Recipe serving-->
+                    <p class="card-text mb-0">Porsi: <?= $recipe["serving"]; ?></p>
+                    <!-- Recipe timing-->
+                    <p class="card-text mb-0">Waktu: <?= $recipe["timing"]; ?></p>
+                  </div>
                 </div>
-              </div>
-              <!-- Menu actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="d-flex justify-content-center">
-                  <a href="recipes.php?recipe_id=<?= $menu["recipe_id"]; ?>" class="btn btn-outline-danger">
-                    <i class="fas fa-book-open"></i> Lihat Resep
-                  </a>
+                <!-- Menu actions-->
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div class="d-flex justify-content-center">
+                    <a href="recipes.php?recipe_id=<?= $recipe["recipe_id"]; ?>" class="btn btn-outline-danger">
+                      <i class="fas fa-book-open"></i> Lihat Resep
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        <?php endforeach; ?>
-      </div>
+          <?php endforeach; ?>
+        </div>
+      <?php else : ?>
+        <h4 class="text-center title fw-bold mt-4">Tidak ada resep yang tersedia.</h4>
+      <?php endif; ?>
     </div>
   </section>
 <?php else : ?>

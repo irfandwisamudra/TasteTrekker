@@ -86,10 +86,10 @@ $categories = getAllCategoriesWithCountRecipes();
 
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center mt-4">
       <?php foreach ($menus as $menu) : ?>
-        <div class="col">
+        <div class="col my-3">
           <div class="card h-100">
             <!-- Menu image-->
-            <img class="card-img-top" src="<?= BASEURL ?>/assets/img/<?= $menu["image_menu"]; ?>" class="card-img-top" alt="<?= ucwords($menu["name_menu"]); ?>" />
+            <img class="card-img-top" src="<?= BASEURL ?>/assets/img/menu/<?= $menu["image_menu"]; ?>" class="card-img-top" alt="<?= ucwords($menu["name_menu"]); ?>" />
             <!-- Menu details-->
             <div class="card-body p-4">
               <div class="text-center">
@@ -132,7 +132,7 @@ $categories = getAllCategoriesWithCountRecipes();
                                     <img src="<?= BASEURL ?>/assets/img/category/<?= $category["image_category"]; ?>" class="card-img-top img-fluid" alt="<?= ucwords($category["name_category"]); ?>" style="object-fit: cover; object-position: center; height: 400px;">
                                 </figure>
                                 <div class="item-content">
-                                    <h3 class="item-title"><a href="menu.php?category_id=<?= $category["category_id"]; ?>"><?= $category["name_category"]; ?></a></h3>
+                                    <h3 class="item-title"><a href="menus.php?category_id=<?= $category["category_id"]; ?>"><?= $category["name_category"]; ?></a></h3>
                                     <p class="card-text"><?= $category["desc_category"]; ?></p>
                                     <span class="sub-title"> <?= $category["count_recipes"]; ?> Recipes</span>
                                 </div>

@@ -1,16 +1,13 @@
 <?php
-$title = "Category - TasteTrekker";
+$title = "Kategori Menu - TasteTrekker";
 
 include "./includes/main_start.php";
-
 ?>
 
 <?php
 $categories = getAllCategories();
 ?>
-<div class="container">
-  <div class="row mt-5">
-  </div>
+<div class="container pt-3">
   <div class="row mt-5">
     <div class="col">
       <h2 class="fw-bold text-center">KATEGORI MENU</h2>
@@ -18,12 +15,8 @@ $categories = getAllCategories();
   </div>
 </div>
 
-
-<!-- Carousel wrapper -->
 <div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
-  <!-- Inner -->
   <div class="carousel-inner py-3">
-    <!-- Single item -->
     <div class="carousel-item active">
       <div class="container">
         <div class="row justify-content-center">
@@ -36,7 +29,7 @@ $categories = getAllCategories();
                   <p class="card-text">
                     <?= $category["desc_category"]; ?>
                   </p>
-                  <a href="menu.php?category_id=<?= $category['category_id']; ?>" class="btn btn-outline-danger">Lihat Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
+                  <a href="menus.php?category_id=<?= $category['category_id']; ?>" class="btn btn-outline-danger">Lihat Selengkapnya <i class="fa-solid fa-angles-right"></i></a>
                 </div>
               </div>
             </div>

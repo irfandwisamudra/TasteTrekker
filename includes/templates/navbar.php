@@ -15,7 +15,10 @@
             <a class="nav-link" href="<?= BASEURL ?>/recipes.php">Recipes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= BASEURL ?>/category.php">Category</a>
+            <a class="nav-link" href="<?= BASEURL ?>/categories.php">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= BASEURL ?>/menus.php">Menus</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?= BASEURL ?>/gallery.php">Gallery</a>
