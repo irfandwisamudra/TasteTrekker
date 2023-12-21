@@ -2,7 +2,7 @@
   <div class="deznav-scroll">
     <ul class="metismenu" id="menu">
       <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-          <i class="flaticon-381-networking"></i>
+          <i class="fa-solid fa-boxes-stacked"></i>
           <span class="nav-text">Kategori</span>
         </a>
         <ul aria-expanded="false">
@@ -11,7 +11,7 @@
         </ul>
       </li>
       <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-          <i class="flaticon-381-television"></i>
+          <i class="fa-solid fa-burger"></i>
           <span class="nav-text">Menu</span>
         </a>
         <ul aria-expanded="false">
@@ -20,7 +20,7 @@
         </ul>
       </li>
       <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-          <i class="flaticon-381-controls-3"></i>
+          <i class="fa-solid fa-bell-concierge"></i>
           <span class="nav-text">Resep</span>
         </a>
         <ul aria-expanded="false">
@@ -29,7 +29,7 @@
         </ul>
       </li>
       <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-          <i class="flaticon-381-internet"></i>
+          <i class="fa-solid fa-cart-shopping"></i>
           <span class="nav-text">Pesanan</span>
         </a>
         <ul aria-expanded="false">
