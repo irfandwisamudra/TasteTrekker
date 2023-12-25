@@ -22,8 +22,9 @@ require_once("functions.php");
   <?php if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level"] != 1) : ?>
     <link rel="stylesheet" href="<?= BASEURL ?>/assets/css/style-custom.css">
   <?php else : ?>
-    <link href="<?= BASEURL ?>/assets/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/jquery.dataTables.min.css">
+    <link href="<?= BASEURL ?>/assets/css/style.css" rel="stylesheet">
   <?php endif; ?>
 </head>
 

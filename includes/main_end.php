@@ -11,6 +11,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
   <script src="<?= BASEURL ?>/assets/js/custom.min.js"></script>
   <script src="<?= BASEURL ?>/assets/js/deznav-init.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script src="<?= BASEURL ?>/assets/js/datatables.init.js"></script>
 </body>
 
 </html>
