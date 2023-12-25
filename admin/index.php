@@ -10,7 +10,7 @@ include "../includes/main_start.php";
     <div class="form-head d-flex mb-3 align-items-start">
       <div class="mr-auto d-none d-lg-block">
         <h2 class="text-black font-w600 mb-0">Dashboard</h2>
-        <p class="mb-0">Welcome to TasteTrekker Admin!</p>
+        <p class="mb-0">Selamat Datang di TasteTrekker Admin!</p>
       </div>
 
       <button type="button" class="btn btn-sm btn-primary light d-flex align-items-center svg-btn" data-toggle="modal" data-target="#filterModal">
