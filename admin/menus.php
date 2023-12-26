@@ -3,7 +3,7 @@ $title = "Daftar Menu - TasteTrekker Admin";
 
 include "../includes/main_start.php";
 
-$menus = getAllMenus();
+$menus = getAllMenusWithNameCategory();
 ?>
 
 <div class="content-body">

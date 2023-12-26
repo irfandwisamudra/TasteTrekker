@@ -19,14 +19,14 @@ function getAllCategoriesWithCountRecipes()
   GROUP BY c.category_id")->fetch_all(MYSQLI_ASSOC);
 }
 
-function getAllMenus()
-{
-  return mysqli_query($GLOBALS["db"], "SELECT * FROM menu")->fetch_all(MYSQLI_ASSOC);
-}
-
 function getAllMenusHighlight()
 {
   return mysqli_query($GLOBALS["db"], "SELECT name_menu, image_menu FROM menu")->fetch_all(MYSQLI_ASSOC);
+}
+
+function getAllMenusWithNameCategory()
+{
+  return mysqli_query($GLOBALS["db"], "SELECT m.*, c.name_category AS name_category FROM menu m INNER JOIN category c ON m.category_id = c.category_id")->fetch_all(MYSQLI_ASSOC);
 }
 
 function getAllMenusWithRecipes()
