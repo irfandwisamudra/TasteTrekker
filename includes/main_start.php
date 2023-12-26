@@ -32,6 +32,14 @@ require_once("functions.php");
   <?php if (!isset($_SESSION["login"]) || ($_SESSION["login"] != true && $_SESSION["level"] != 1)) : ?>
     <?php require_once("templates/navbar.php"); ?>
   <?php else : ?>
+    <div id="preloader">
+      <div class="sk-three-bounce">
+        <div class="sk-child sk-bounce1"></div>
+        <div class="sk-child sk-bounce2"></div>
+        <div class="sk-child sk-bounce3"></div>
+      </div>
+    </div>
+
     <div id="main-wrapper">
       <?php
       $user = getUserByEmail($_SESSION["email"]);
