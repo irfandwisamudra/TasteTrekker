@@ -3,7 +3,7 @@ $title = "Daftar Resep - TasteTrekker";
 
 include "./includes/main_start.php";
 
-$menus = getAllMenus();
+$menus = getAllMenusHighlight();
 ?>
 
 <section class="menu-section py-5">
