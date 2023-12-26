@@ -26,6 +26,8 @@ require_once("functions.php");
   <?php if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level"] != 1) : ?>
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="<?= BASEURL ?>/assets/css/style-custom.css">
+    <!-- Preloader -->
+    <link rel="stylesheet" href="<?= BASEURL ?>/assets/css/preloader.css">
   <?php else : ?>
     <!-- Datatable -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/jquery.dataTables.min.css">
@@ -36,18 +38,18 @@ require_once("functions.php");
 </head>
 
 <body class="min-vh-100">
-  <?php if (!isset($_SESSION["login"]) || ($_SESSION["login"] != true && $_SESSION["level"] != 1)) : ?>
-    <?php require_once("templates/navbar.php"); ?>
-  <?php else : ?>
-    <div id="preloader">
-      <div class="sk-three-bounce">
-        <div class="sk-child sk-bounce1"></div>
-        <div class="sk-child sk-bounce2"></div>
-        <div class="sk-child sk-bounce3"></div>
-      </div>
+  <div id="preloader">
+    <div class="sk-three-bounce">
+      <div class="sk-child sk-bounce1"></div>
+      <div class="sk-child sk-bounce2"></div>
+      <div class="sk-child sk-bounce3"></div>
     </div>
+  </div>
 
-    <div id="main-wrapper">
+  <div id="main-wrapper">
+    <?php if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level"] != 1) : ?>
+      <?php require_once("templates/navbar.php"); ?>
+    <?php else : ?>
       <?php
       $user = getUserByEmail($_SESSION["email"]);
       require_once("templates/navbar-admin.php");
