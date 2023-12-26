@@ -15,6 +15,9 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
   <script src="<?= BASEURL ?>/assets/js/datatables.init.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
+  <script src="<?= BASEURL ?>/assets/js/jquery.validate-init.js"></script>
 </body>
 
 </html>

@@ -21638,6 +21638,7 @@ svg text {
     color: #2f4cdd; }
 
 .custom-file-label:after {
+  height: 100%;
   background: #656C73;
   border: 1px solid #f0f1f5;
   color: #fff; }
@@ -21645,9 +21646,6 @@ svg text {
     background: #333a54;
     border-color: #333a54;
     color: #7e7e7e; }
-
-.custom_file_input .custom-file-label::after {
-  height: 100%; }
 
 .form-control:disabled,
 .form-control[readonly] {
