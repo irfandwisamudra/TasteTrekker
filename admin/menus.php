@@ -48,9 +48,9 @@ $menus = getAllMenusWithNameCategory();
                     <tr>
                       <td><?= $no; ?></td>
                       <td><?= $menu["name_menu"]; ?></td>
-                      <td><?= $menu["category_id"]; ?></td>
+                      <td><?= $menu["name_category"]; ?></td>
                       <td><?= $menu["price"]; ?></td>
-                      <td><img class="rounded-circle" width="70" src="<?= BASEURL ?>/assets/img/menu/<?= $menu["image_menu"]; ?>" alt=""></td>
+                      <td><img class="rounded-circle" width="70" src="<?= BASEURL ?>/assets/img/menu/<?= $menu["image_menu"]; ?>" alt="<?= ucwords($category["name_menu"]); ?>"></td>
                       <td>
                         <div class="d-flex">
                           <a href="edit-menu.php?menu_id=<?= $menu["menu_id"]; ?>" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
