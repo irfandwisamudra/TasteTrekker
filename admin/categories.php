@@ -49,7 +49,7 @@ $categories = getAllCategoriesWithCountRecipes();
                       <td><?= $no; ?></td>
                       <td><?= $category["name_category"]; ?></td>
                       <td><?= $category["desc_category"]; ?></td>
-                      <td><img class="rounded-circle" width="70" src="<?= BASEURL ?>/assets/img/category/<?= $category["image_category"]; ?>" alt=""></td>
+                      <td><img class="rounded-circle" width="70" src="<?= BASEURL ?>/assets/img/category/<?= $category["image_category"]; ?>" alt="<?= ucwords($category["name_category"]); ?>"></td>
                       <td><?= $category["count_recipes"]; ?></td>
                       <td>
                         <div class="d-flex">
