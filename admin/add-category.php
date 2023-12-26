@@ -2,8 +2,6 @@
 $title = "Tambah Kategori - TasteTrekker Admin";
 
 include "../includes/main_start.php";
-
-$categories = getAllCategoriesWithCountRecipes();
 ?>
 
 <div class="content-body">
