@@ -25,7 +25,7 @@ if (!isset($_GET["recipe_id"])) {
             <div class="col">
               <div class="card h-100">
                 <!-- Menu image-->
-                <img class="card-img-top" src="<?= BASEURL ?>/assets/img/menu/<?= $recipe["image_menu"]; ?>" class="card-img-top" alt="<?= ucwords($recipe["name_menu"]); ?>" />
+                <img class="card-img-top" src="<?= BASEURL ?>/assets/img/recipe/<?= $recipe["image_recipe"]; ?>" class="card-img-top" alt="<?= ucwords($recipe["name_menu"]); ?>" />
                 <!-- Menu details-->
                 <div class="card-body p-4">
                   <div class="text-center">
@@ -66,7 +66,7 @@ if (!isset($_GET["recipe_id"])) {
       <div class="row">
         <!-- Picture -->
         <div class="col-md-6">
-          <img src="<?= BASEURL ?>/assets/img/<?= $recipe["image_menu"]; ?>" alt="<?= ucwords($recipe["name_menu"]); ?>" class="recipe-picture shadow rounded mb-3" />
+          <img src="<?= BASEURL ?>/assets/img/recipe/<?= $recipe["image_recipe"]; ?>" alt="<?= ucwords($recipe["name_menu"]); ?>" class="recipe-picture shadow rounded mb-3" />
         </div>
         <!-- Info -->
         <div class="col-md-6">
