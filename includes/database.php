@@ -36,7 +36,7 @@ function getAllMenusWithRecipes()
 
 function getAllRecipesWithNameMenu()
 {
-  return mysqli_query($GLOBALS["db"], "SELECT r.*, m.name_menu FROM recipe r INNER JOIN menu m ON r.menu_id = m.menu_id")->fetch_assoc();
+  return mysqli_query($GLOBALS["db"], "SELECT r.*, m.name_menu FROM recipe r INNER JOIN menu m ON r.menu_id = m.menu_id")->fetch_all(MYSQLI_ASSOC);
 }
 
 function getRecipeWithMenuByRecipeId($recipe_id)
