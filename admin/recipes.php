@@ -3,7 +3,7 @@ $title = "Daftar Resep - TasteTrekker Admin";
 
 include "../includes/main_start.php";
 
-$menus = getAllRecipesWithNameMenu();
+$recipes = getAllRecipesWithNameMenu();
 ?>
 
 
