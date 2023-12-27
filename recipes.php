@@ -4,7 +4,7 @@ $title = "Daftar Resep - TasteTrekker";
 include "./includes/main_start.php";
 
 if (!isset($_GET["recipe_id"])) {
-  $recipes = getAllRecipesWithMenu();
+  $recipes = getAllRecipesWithNameMenu();
 } else {
   $recipe_id = $_GET["recipe_id"];
   $recipe = getRecipeWithMenuByRecipeId($recipe_id);

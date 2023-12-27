@@ -34,9 +34,9 @@ function getAllMenusWithRecipes()
   return mysqli_query($GLOBALS["db"], "SELECT * FROM menu m LEFT JOIN recipe r ON m.menu_id = r.menu_id")->fetch_all(MYSQLI_ASSOC);
 }
 
-function getAllRecipesWithMenu()
+function getAllRecipesWithNameMenu()
 {
-  return mysqli_query($GLOBALS["db"], "SELECT * FROM recipe r INNER JOIN menu m ON r.menu_id = m.menu_id")->fetch_assoc();
+  return mysqli_query($GLOBALS["db"], "SELECT r.*, m.name_menu FROM recipe r INNER JOIN menu m ON r.menu_id = m.menu_id")->fetch_assoc();
 }
 
 function getRecipeWithMenuByRecipeId($recipe_id)
