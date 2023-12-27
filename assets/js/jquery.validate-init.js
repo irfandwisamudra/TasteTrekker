@@ -1,4 +1,4 @@
-jQuery(".form-valide").validate({
+jQuery(".form-valide-category").validate({
     rules: {
         "val-name": {
             required: !0
