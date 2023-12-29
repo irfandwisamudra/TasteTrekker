@@ -40,6 +40,7 @@ $recipes = getAllRecipesWithNameMenu();
                     <th>Deskripsi</th>
                     <th>Penyajian</th>
                     <th>Waktu</th>
+                    <th>Gambar</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
