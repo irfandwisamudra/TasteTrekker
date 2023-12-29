@@ -26,7 +26,7 @@ function getAllMenusHighlight()
 
 function getAllMenusWithNameCategory()
 {
-  return mysqli_query($GLOBALS["db"], "SELECT m.*, c.name_category AS name_category FROM menu m INNER JOIN category c ON m.category_id = c.category_id")->fetch_all(MYSQLI_ASSOC);
+  return mysqli_query($GLOBALS["db"], "SELECT m.*, c.name_category FROM menu m INNER JOIN category c ON m.category_id = c.category_id")->fetch_all(MYSQLI_ASSOC);
 }
 
 function getAllMenusWithRecipes()
