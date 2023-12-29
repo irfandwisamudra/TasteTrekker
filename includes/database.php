@@ -54,6 +54,11 @@ function getMethodsByRecipeId($recipe_id)
   return mysqli_query($GLOBALS["db"], "SELECT * FROM method WHERE recipe_id='$recipe_id'")->fetch_all(MYSQLI_ASSOC);
 }
 
+function getAllOrdersWithUsername()
+{
+  return mysqli_query($GLOBALS["db"], "SELECT o.*, u.username FROM `order` o INNER JOIN user u ON o.user_id = u.user_id")->fetch_all(MYSQLI_ASSOC);
+}
+
 function insertUser($data)
 {
   return mysqli_query($GLOBALS["db"], "INSERT INTO user (user_id, username, email, `password`, image_user, `level`)
