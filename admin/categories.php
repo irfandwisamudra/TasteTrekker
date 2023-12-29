@@ -53,7 +53,7 @@ $categories = getAllCategoriesWithCountRecipes();
                       <td><?= $category["count_recipes"]; ?></td>
                       <td>
                         <div class="d-flex">
-                          <a href="edit-category.php?category_id=<?= $category["category_id"]; ?>" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                          <a href="edit-category.php?category_id=<?= $category["category_id"]; ?>" class="btn btn-warning shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
                           <a href="delete-category.php?category_id=<?= $category["category_id"]; ?>" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                         </div>
                       </td>

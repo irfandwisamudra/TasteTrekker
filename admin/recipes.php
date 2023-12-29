@@ -57,7 +57,7 @@ $recipes = getAllRecipesWithNameMenu();
                       <td><img class="rounded-circle" width="70" src="<?= BASEURL ?>/assets/img/recipe/<?= $recipe["image_recipe"]; ?>" alt="<?= ucwords($recipe["name_menu"]); ?>"></td>
                       <td>
                         <div class="d-flex">
-                          <a href="edit-recipe.php?recipe_id=<?= $recipe["recipe_id"]; ?>" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                          <a href="edit-recipe.php?recipe_id=<?= $recipe["recipe_id"]; ?>" class="btn btn-warning shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
                           <a href="delete-recipe.php?recipe_id=<?= $recipe["recipe_id"]; ?>" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                         </div>
                       </td>
