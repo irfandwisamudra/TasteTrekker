@@ -137,3 +137,41 @@ jQuery(".form-valide-recipe").validate({
         jQuery(e).closest(".form-group").removeClass("is-invalid"), jQuery(e).remove()
     },
 });
+
+jQuery(".form-valide-order").validate({
+    rules: {
+        "val-user": {
+            required: !0
+        },
+        "val-payment": {
+            required: !0
+        },
+        "val-delivery": {
+            required: !0
+        }
+    },
+    messages: {
+        "val-user": {
+            required: "Silakan pilih username"
+        },
+        "val-payment": {
+            required: "Silahkan pilih pembayaran"
+        },
+        "val-delivery": {
+            required: "Silahkan pilih pengiriman"
+        }
+    },
+
+    ignore: [],
+    errorClass: "invalid-feedback animated fadeInUp",
+    errorElement: "div",
+    errorPlacement: function(e, a) {
+        jQuery(a).parents(".form-group > div").append(e)
+    },
+    highlight: function(e) {
+        jQuery(e).closest(".form-group").removeClass("is-invalid").addClass("is-invalid")
+    },
+    success: function(e) {
+        jQuery(e).closest(".form-group").removeClass("is-invalid"), jQuery(e).remove()
+    },
+});

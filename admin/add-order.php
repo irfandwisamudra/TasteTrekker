@@ -23,7 +23,7 @@ include "../includes/main_start.php";
           </div>
           <div class="card-body">
             <div class="form-validation">
-              <form class="form-valide-recipe" action="#" method="post">
+              <form class="form-valide-order" action="#" method="post">
                 <div class="row">
                   <div class="col-xl-12">
                     <div class="form-group row">
