@@ -20,6 +20,10 @@
     <script src="<?= BASEURL ?>/assets/js/custom.min.js"></script>
     <script src="<?= BASEURL ?>/assets/js/deznav-init.js"></script>
 
+    <!-- Counter Up -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+
     <!-- Datatable -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="<?= BASEURL ?>/assets/js/datatables.init.js"></script>
@@ -28,7 +32,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
     <!-- Form validate init -->
     <script src="<?= BASEURL ?>/assets/js/jquery.validate-init.js"></script>
-  <?php endif; ?>
-  </body>
 
-  </html>
+    <!-- Dashboard -->
+	  <script src="<?= BASEURL ?>/assets/js/dashboard.js"></script>
+  <?php endif; ?>
+</body>
+
+</html>
