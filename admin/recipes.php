@@ -3,6 +3,11 @@ $title = "Daftar Resep - TasteTrekker Admin";
 
 include "../includes/main_start.php";
 
+if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level"] != 1) {
+  header("Location: ../index.php");
+  exit;
+}
+
 $recipes = getAllRecipesWithNameMenu();
 ?>
 
