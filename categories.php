@@ -2,6 +2,11 @@
 $title = "Kategori Menu - TasteTrekker";
 
 include "./includes/main_start.php";
+
+if (isset($_SESSION["login"]) && $_SESSION["login"] == true && $_SESSION["level"] == 1) {
+  header("Location: ./admin/index.php");
+  exit;
+}
 ?>
 
 <?php

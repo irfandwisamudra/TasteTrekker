@@ -3,6 +3,11 @@ $title = "Sign Up - TasteTrekker";
 
 include "./includes/main_start.php";
 
+if (isset($_SESSION["login"]) && $_SESSION["login"] == true && $_SESSION["level"] == 1) {
+  header("Location: ./admin/index.php");
+  exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["signup"])) {
   register($_POST);
 }
