@@ -15,11 +15,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       header("Location: ./categories.php");
       exit;
     } else {
-      echo "<script>Gagal menambahkan kategori;</script>";
+      echo "<script>
+              alert('Gagal menambahkan kategori');
+            </script>";
     }
   } else {
     $errorMessage = $validatedImage["error"];
-    echo "<script>alert('$errorMessage');</script>";
+    echo "<script>
+            alert('$errorMessage');
+          </script>";
   }
   unset($_POST);
 }
