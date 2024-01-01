@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="text-center mb-4">
               <img src="<?= BASEURL ?>/assets/img/logo/TasteTrekker-square.svg" alt="TasteTrekker-logo" class="img-fluid">
             </div>
-            <h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
+            <h1 class="fs-4 card-title fw-bold mb-4 text-center">Login</h1>
 
             <?php if (isset($_SESSION["registerSuccess"])) : ?>
               <div class="alert alert-success"><?= $_SESSION["registerSuccess"]; ?></div>
@@ -64,27 +64,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               </div>
 
               <div class="mb-3">
-                <div class="mb-2 w-100">
-                  <label class="form-label" for="password">Password</label>
-                  <a href="forgot.php" class="float-end">
-                    Lupa Password?
-                  </a>
-                </div>
+                <label class="form-label mb-2" for="password">Password</label>
                 <input id="password" type="password" class="form-control" name="password" required>
                 <div class="invalid-feedback">
                   Password harus diisi
                 </div>
               </div>
 
-              <div class="d-flex align-items-center">
+              <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-check">
                   <input type="checkbox" name="remember" id="remember" class="form-check-input">
                   <label for="remember" class="form-check-label">Remember Me</label>
                 </div>
-                <button type="submit" class="btn btn-primary ms-auto">
-                  <i class="fas fa-sign-in-alt"></i> Login
-                </button>
+                <a href="forgot.php" class="float-end">
+                  Lupa Password?
+                </a>
               </div>
+              <button type="submit" class="btn btn-primary ms-auto">
+                <i class="fas fa-sign-in-alt"></i> Login
+              </button>
             </form>
           </div>
           <div class="card-footer py-3 border-0">
