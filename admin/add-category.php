@@ -7,6 +7,18 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
   header("Location: ../index.php");
   exit;
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (insertCategory($_POST)) {
+    header("Location: ./categories.php");
+    exit;
+  } else {
+    $errorMessage = $_SESSION["errorMessage"];
+    echo "<script>alert('$errorMessage');</script>";
+    unset($_SESSION["errorMessage"]);
+  }
+  unset($_POST);
+}
 ?>
 
 <div class="content-body">
@@ -28,27 +40,27 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
           </div>
           <div class="card-body">
             <div class="form-validation">
-              <form class="form-valide-category" action="#" method="post">
+              <form class="form-valide-category" action="" method="post" enctype="multipart/form-data">
                 <div class="row">
                   <div class="col-xl-12">
                     <div class="form-group row">
-                      <label class="col-lg-4 col-form-label" for="val-name">Nama
+                      <label class="col-lg-4 col-form-label" for="name_category">Nama
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
-                        <input type="text" class="form-control" id="val-name" name="val-name" placeholder="Masukkan nama..">
+                        <input type="text" class="form-control" id="name_category" name="name_category" placeholder="Masukkan nama..">
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-lg-4 col-form-label" for="val-desc">Deskripsi
+                      <label class="col-lg-4 col-form-label" for="desc_category">Deskripsi
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
-                        <input type="text" class="form-control" id="val-desc" name="val-desc" placeholder="Masukkan deskripsi..">
+                        <input type="text" class="form-control" id="desc_category" name="desc_category" placeholder="Masukkan deskripsi..">
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-lg-4 col-form-label" for="val-image">Gambar
+                      <label class="col-lg-4 col-form-label" for="image_category">Gambar
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
@@ -57,7 +69,7 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
                             <span class="input-group-text">Upload</span>
                           </div>
                           <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="val-image" name="val-image">
+                            <input type="file" class="custom-file-input" id="image_category" name="image_category">
                             <label class="custom-file-label">Pilih file</label>
                           </div>
                         </div>
