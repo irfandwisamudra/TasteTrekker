@@ -24,16 +24,6 @@ function register($data)
   }
 }
 
-function getUserData($email)
-{
-  return mysqli_query($GLOBALS["db"], "SELECT * FROM user WHERE email='$email' ")->fetch_assoc();
-}
-
-function getUserDataHighlight($email)
-{
-  return mysqli_query($GLOBALS["db"], "SELECT email, username FROM user WHERE email='$email' ")->fetch_assoc();
-}
-
 function validateEmail($data)
 {
   if (getUserData($data['email']) == NULL) {
