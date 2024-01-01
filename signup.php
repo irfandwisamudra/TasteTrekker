@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["signup"])) {
             <div class="text-center mb-4">
               <img src="<?= BASEURL ?>/assets/img/logo/TasteTrekker-square.svg" alt="TasteTrekker-logo" class="img-fluid">
             </div>
-            <h1 class="fs-4 card-title fw-bold mb-4">Sign Up</h1>
+            <h1 class="fs-4 card-title fw-bold mb-4 text-center">Sign Up</h1>
             <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
               <div class="mb-3">
                 <label class="mb-2 text-muted" for="username">Username</label>
@@ -68,11 +68,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["signup"])) {
                 By registering you agree with our <a href="terms_of_use.php">terms of use</a> and <a href="privacy_policy.php">privacy policy</a>.
               </p>
 
-              <div class="align-items-center d-flex">
-                <button type="submit" class="btn btn-primary ms-auto" name="signup">
-                  <i class="fas fa-sign-in-alt"></i> Sign Up
-                </button>
-              </div>
+              <button type="submit" class="btn btn-primary ms-auto" name="signup">
+                <i class="fas fa-sign-in-alt"></i> Sign Up
+              </button>
             </form>
           </div>
           <div class="card-footer py-3 border-0">
