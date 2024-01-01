@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </div>
           <div class="card-footer py-3 border-0">
             <div class="text-center">
-              Belum punya akun? <a href="sign_up.php">Sign Up</a>
+              Belum punya akun? <a href="signup.php">Sign Up</a>
             </div>
           </div>
         </div>

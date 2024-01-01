@@ -36,7 +36,7 @@
               <a class="btn btn-outline-danger mx-2" href="<?= BASEURL ?>/login.php">Login</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-danger" href="<?= BASEURL ?>/sign_up.php">Sign Up</a>
+              <a class="btn btn-danger" href="<?= BASEURL ?>/signup.php">Sign Up</a>
             </li>
           </ul>
         <?php else :
