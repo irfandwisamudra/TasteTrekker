@@ -43,6 +43,16 @@ function getAllMenusWithRecipes()
   return mysqli_query($GLOBALS["db"], "SELECT * FROM menu m LEFT JOIN recipe r ON m.menu_id = r.menu_id")->fetch_all(MYSQLI_ASSOC);
 }
 
+function insertMenu($data, $image)
+{
+  return mysqli_query($GLOBALS["db"], "INSERT INTO menu (menu_id, category_id, name_menu, price, image_menu)
+  VALUES ('" . $GLOBALS['uuid'] . "',
+  '" . htmlspecialchars($data['category_id']) . "', 
+  '" . htmlspecialchars($data['name_menu']) . "', 
+  '" . htmlspecialchars($data['price']) . "',
+  '" . htmlspecialchars($image) . "')");
+}
+
 function getAllRecipesWithNameMenu()
 {
   return mysqli_query($GLOBALS["db"], "SELECT r.*, m.name_menu FROM recipe r INNER JOIN menu m ON r.menu_id = m.menu_id")->fetch_all(MYSQLI_ASSOC);
