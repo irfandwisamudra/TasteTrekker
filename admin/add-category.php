@@ -9,13 +9,17 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (insertCategory($_POST)) {
-    header("Location: ./categories.php");
-    exit;
+  $validatedImage = validateImage($_FILES["image_category"]);
+  if ($validatedImage["success"]) {
+    if (insertCategory($_POST, $validatedImage["file_name"])) {
+      header("Location: ./categories.php");
+      exit;
+    } else {
+      echo "<script>Gagal menambahkan kategori;</script>";
+    }
   } else {
-    $errorMessage = $_SESSION["errorMessage"];
+    $errorMessage = $validatedImage["error"];
     echo "<script>alert('$errorMessage');</script>";
-    unset($_SESSION["errorMessage"]);
   }
   unset($_POST);
 }

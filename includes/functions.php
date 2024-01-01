@@ -44,21 +44,6 @@ function validatePassword($data)
   }
 }
 
-function insertCategory($data)
-{
-  $validatedImage = validateImage($_FILES["image_category"]);
-  if (!$validatedImage["success"]) {
-    $_SESSION["errorMessage"] = $validatedImage["error"];
-    return false;
-  }
-
-  return mysqli_query($GLOBALS["db"], "INSERT INTO category (category_id, name_category, desc_category, image_category)
-  VALUES ('" . $GLOBALS['uuid'] . "',
-  '" . htmlspecialchars($data['name_category']) . "', 
-  '" . htmlspecialchars($data['desc_category']) . "',
-  '" . htmlspecialchars($validatedImage['file_name']) . "')");
-}
-
 function validateImage($image)
 {
   $allowedExtensions = ["jpg", "jpeg", "png"];

@@ -19,6 +19,15 @@ function getAllCategoriesWithCountRecipes()
   GROUP BY c.category_id")->fetch_all(MYSQLI_ASSOC);
 }
 
+function insertCategory($data, $image)
+{
+  return mysqli_query($GLOBALS["db"], "INSERT INTO category (category_id, name_category, desc_category, image_category)
+  VALUES ('" . $GLOBALS['uuid'] . "',
+  '" . htmlspecialchars($data['name_category']) . "', 
+  '" . htmlspecialchars($data['desc_category']) . "',
+  '" . htmlspecialchars($image) . "')");
+}
+
 function getAllMenusHighlight()
 {
   return mysqli_query($GLOBALS["db"], "SELECT name_menu, image_menu FROM menu")->fetch_all(MYSQLI_ASSOC);
@@ -75,11 +84,13 @@ function getLevelByEmail($email)
   return intVal(mysqli_query($GLOBALS["db"], "SELECT `level` FROM user WHERE email = '$email'")->fetch_row()[0]);
 }
 
-function isUsernameExists($username) {
+function isUsernameExists($username)
+{
   return intval(mysqli_fetch_assoc(mysqli_query($GLOBALS["db"], "SELECT COUNT(*) as count FROM user WHERE username = '" . mysqli_real_escape_string($GLOBALS["db"], $username) . "'"))['count']) > 0;
 }
 
-function isEmailExists($email) {
+function isEmailExists($email)
+{
   return intval(mysqli_fetch_assoc(mysqli_query($GLOBALS["db"], "SELECT COUNT(*) as count FROM user WHERE email = '" . mysqli_real_escape_string($GLOBALS["db"], $email) . "'"))['count']) > 0;
 }
 
