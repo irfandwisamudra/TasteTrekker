@@ -44,7 +44,7 @@ function validatePassword($data)
   }
 }
 
-function validateImage($image)
+function validateImage($image, $dirFile)
 {
   $allowedExtensions = ["jpg", "jpeg", "png"];
   $maxFileSize = 1 * 1024 * 1024;
@@ -70,7 +70,7 @@ function validateImage($image)
 
   $newFileName = uniqid("", true) . "." . $imageExtension;
 
-  move_uploaded_file($imageTmpName, "../assets/img/category/" . $newFileName);
+  move_uploaded_file($imageTmpName, $dirFile . $newFileName);
 
   return ["success" => true, "file_name" => $newFileName];
 }
