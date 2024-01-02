@@ -11,6 +11,11 @@ function getAllCategories()
   return mysqli_query($GLOBALS["db"], "SELECT * FROM category")->fetch_all(MYSQLI_ASSOC);
 }
 
+function getIdAndNameCategories()
+{
+  return mysqli_query($GLOBALS["db"], "SELECT category_id, name_category FROM category")->fetch_all(MYSQLI_ASSOC);
+}
+
 function getAllCategoriesWithCountRecipes()
 {
   return mysqli_query($GLOBALS["db"], "SELECT c.*, COUNT(m.menu_id) AS count_recipes
