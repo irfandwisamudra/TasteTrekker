@@ -71,6 +71,7 @@ $menus = getAllIdAndNameMenus();
                           <?php foreach ($menus as $menu) : ?>
                             <option value="<?= $menu['menu_id']; ?>"><?= $menu["name_menu"]; ?></option>
                           <?php endforeach; ?>
+                        </select>
                       </div>
                     </div>
                     <div class="form-group row">
