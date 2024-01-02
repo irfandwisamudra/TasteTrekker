@@ -93,42 +93,42 @@ $(document).ready(function () {
 
   jQuery(".form-valide-recipe").validate({
     rules: {
-      "val-title": {
+      "title": {
         required: !0,
       },
-      "val-menu": {
+      "menu_id": {
         required: !0,
       },
-      "val-desc": {
+      "desc_recipe": {
         required: !0,
       },
-      "val-serving": {
+      "serving": {
         required: !0,
       },
-      "val-timing": {
+      "timing": {
         required: !0,
       },
-      "val-image": {
+      "image_recipe": {
         required: !0,
       },
     },
     messages: {
-      "val-title": {
+      "title": {
         required: "Silakan masukkan judul",
       },
-      "val-menu": {
+      "menu_id": {
         required: "Silahkan pilih menu",
       },
-      "val-desc": {
+      "desc_recipe": {
         required: "Silahkan masukkan deskripsi",
       },
-      "val-serving": {
+      "serving": {
         required: "Silahkan masukkan penyajian",
       },
-      "val-timing": {
+      "timing": {
         required: "Silahkan masukkan waktu",
       },
-      "val-image": {
+      "image_recipe": {
         required: "Silahkan upload gambar",
       },
     },
