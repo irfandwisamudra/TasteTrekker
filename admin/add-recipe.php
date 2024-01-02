@@ -50,7 +50,7 @@ $menus = getAllIdAndNameMenus();
           </div>
           <div class="card-body">
             <div class="form-validation">
-              <form class="form-valide-recipe" action="#" method="post">
+              <form class="form-valide-recipe" action="" method="post" enctype="multipart/form-data">
                 <div class="row">
                   <div class="col-xl-12">
                     <div class="form-group row">
