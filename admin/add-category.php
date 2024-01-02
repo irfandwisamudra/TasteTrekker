@@ -8,7 +8,7 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
   exit;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
   $validatedImage = validateImage($_FILES["image_category"], "../assets/img/category/");
   if ($validatedImage["success"]) {
     if (insertCategory($_POST, $validatedImage["file_name"])) {
@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <div class="form-group row">
                       <div class="col-lg-8 ml-auto">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                       </div>
                     </div>
                   </div>
