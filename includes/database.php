@@ -48,6 +48,11 @@ function getAllMenusWithRecipes()
   return mysqli_query($GLOBALS["db"], "SELECT * FROM menu m LEFT JOIN recipe r ON m.menu_id = r.menu_id")->fetch_all(MYSQLI_ASSOC);
 }
 
+function getAllIdAndNameMenus()
+{
+  return mysqli_query($GLOBALS["db"], "SELECT menu_id, name_menu FROM menu")->fetch_all(MYSQLI_ASSOC);
+}
+
 function insertMenu($data, $image)
 {
   return mysqli_query($GLOBALS["db"], "INSERT INTO menu (menu_id, category_id, name_menu, price, image_menu)
@@ -76,11 +81,6 @@ function getAllIngredientsByRecipeId($recipe_id)
 function getAllMethodsByRecipeId($recipe_id)
 {
   return mysqli_query($GLOBALS["db"], "SELECT * FROM method WHERE recipe_id='$recipe_id'")->fetch_all(MYSQLI_ASSOC);
-}
-
-function getAllIdAndNameMenus()
-{
-  return mysqli_query($GLOBALS["db"], "SELECT menu_id, name_menu FROM menu")->fetch_all(MYSQLI_ASSOC);
 }
 
 function getAllOrdersWithUsername()
