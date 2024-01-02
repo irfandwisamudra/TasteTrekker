@@ -9,7 +9,7 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $validatedImage = validateImage($_FILES["image_category"]);
+  $validatedImage = validateImage($_FILES["image_category"], "../assets/img/category/");
   if ($validatedImage["success"]) {
     if (insertCategory($_POST, $validatedImage["file_name"])) {
       header("Location: ./categories.php");
