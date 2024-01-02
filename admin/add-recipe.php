@@ -7,6 +7,28 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
   header("Location: ../index.php");
   exit;
 }
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
+  $validatedImage = validateImage($_FILES["image_recipe"], "../assets/img/recipe/");
+  if ($validatedImage["success"]) {
+    if (insertRecipe($_POST, $validatedImage["file_name"])) {
+      header("Location: ./recipes.php");
+      exit;
+    } else {
+      echo "<script>
+              alert('Gagal menambahkan resep');
+            </script>";
+    }
+  } else {
+    $errorMessage = $validatedImage["error"];
+    echo "<script>
+            alert('$errorMessage');
+          </script>";
+  }
+  unset($_POST);
+}
+
+$menus = getAllIdAndNameMenus();
 ?>
 
 <div class="content-body">
@@ -32,47 +54,51 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
                 <div class="row">
                   <div class="col-xl-12">
                     <div class="form-group row">
-                      <label class="col-lg-4 col-form-label" for="val-title">Judul
+                      <label class="col-lg-4 col-form-label" for="title">Judul
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
-                        <input type="text" class="form-control" id="val-title" name="val-title" placeholder="Masukkan judul..">
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Masukkan judul..">
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-lg-4 col-form-label" for="val-menu">Menu
+                      <label class="col-lg-4 col-form-label" for="menu">Menu
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
-                        <input type="text" class="form-control" id="val-menu" name="val-menu" placeholder="Masukkan menu..">
+                        <select class="form-control" name="menu_id" id="menu">
+                          <option value="" readonly selected>Pilih menu..</option>
+                          <?php foreach ($menus as $menu) : ?>
+                            <option value="<?= $menu['menu_id']; ?>"><?= $menu["name_menu"]; ?></option>
+                          <?php endforeach; ?>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-lg-4 col-form-label" for="val-desc">Deskripsi
+                      <label class="col-lg-4 col-form-label" for="desc_recipe">Deskripsi
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
-                        <input type="text" class="form-control" id="val-desc" name="val-desc" placeholder="Masukkan deskripsi..">
+                        <input type="text" class="form-control" id="desc_recipe" name="desc_recipe" placeholder="Masukkan deskripsi..">
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-lg-4 col-form-label" for="val-serving">Penyajian
+                      <label class="col-lg-4 col-form-label" for="serving">Penyajian
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
-                        <input type="text" class="form-control" id="val-serving" name="val-serving" placeholder="Masukkan penyajian..">
+                        <input type="text" class="form-control" id="serving" name="serving" placeholder="Masukkan penyajian..">
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-lg-4 col-form-label" for="val-timing">Waktu
+                      <label class="col-lg-4 col-form-label" for="timing">Waktu
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
-                        <input type="text" class="form-control" id="val-timing" name="val-timing" placeholder="Masukkan waktu..">
+                        <input type="text" class="form-control" id="timing" name="timing" placeholder="Masukkan waktu..">
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-lg-4 col-form-label" for="val-image">Gambar
+                      <label class="col-lg-4 col-form-label" for="image_recipe">Gambar
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
@@ -81,7 +107,7 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
                             <span class="input-group-text">Upload</span>
                           </div>
                           <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="val-image" name="val-image">
+                            <input type="file" class="custom-file-input" id="image_recipe" name="image_recipe">
                             <label class="custom-file-label">Pilih file</label>
                           </div>
                         </div>
@@ -89,7 +115,7 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
                     </div>
                     <div class="form-group row">
                       <div class="col-lg-8 ml-auto">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                       </div>
                     </div>
                   </div>
