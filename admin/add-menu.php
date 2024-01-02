@@ -7,6 +7,28 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
   header("Location: ../index.php");
   exit;
 }
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
+  $validatedImage = validateImage($_FILES["image_menu"], "../assets/img/menu/");
+  if ($validatedImage["success"]) {
+    if (insertMenu($_POST, $validatedImage["file_name"])) {
+      header("Location: ./menus.php");
+      exit;
+    } else {
+      echo "<script>
+              alert('Gagal menambahkan menu');
+            </script>";
+    }
+  } else {
+    $errorMessage = $validatedImage["error"];
+    echo "<script>
+            alert('$errorMessage');
+          </script>";
+  }
+  unset($_POST);
+}
+
+$categories = getIdAndNameCategories();
 ?>
 
 <div class="content-body">
@@ -28,35 +50,40 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
           </div>
           <div class="card-body">
             <div class="form-validation">
-              <form class="form-valide-menu" action="#" method="post">
+              <form class="form-valide-menu" action="" method="post" enctype="multipart/form-data">
                 <div class="row">
                   <div class="col-xl-12">
                     <div class="form-group row">
-                      <label class="col-lg-4 col-form-label" for="val-name">Nama
+                      <label class="col-lg-4 col-form-label" for="name_menu">Nama
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
-                        <input type="text" class="form-control" id="val-name" name="val-name" placeholder="Masukkan nama..">
+                        <input type="text" class="form-control" id="name_menu" name="name_menu" placeholder="Masukkan nama..">
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-lg-4 col-form-label" for="val-category">Kategori
+                      <label class="col-lg-4 col-form-label" for="category">Kategori
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
-                        <input type="text" class="form-control" id="val-category" name="val-category" placeholder="Masukkan kategori..">
+                        <select class="form-control" name="category_id" id="category">
+                          <option value="" readonly selected>Pilih kategori..</option>
+                          <?php foreach ($categories as $category) : ?>
+                            <option value="<?= $category['category_id']; ?>"><?= $category["name_category"]; ?></option>
+                          <?php endforeach; ?>
+                        </select>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-lg-4 col-form-label" for="val-price">Harga
+                      <label class="col-lg-4 col-form-label" for="price">Harga
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
-                        <input type="number" class="form-control" id="val-price" name="val-price" placeholder="Masukkan harga..">
+                        <input type="number" class="form-control" id="price" name="price" placeholder="Masukkan harga..">
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-lg-4 col-form-label" for="val-image">Gambar
+                      <label class="col-lg-4 col-form-label" for="image_menu">Gambar
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
@@ -65,7 +92,7 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
                             <span class="input-group-text">Upload</span>
                           </div>
                           <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="val-image" name="val-image">
+                            <input type="file" class="custom-file-input" id="image_menu" name="image_menu">
                             <label class="custom-file-label">Pilih file</label>
                           </div>
                         </div>
@@ -73,7 +100,7 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
                     </div>
                     <div class="form-group row">
                       <div class="col-lg-8 ml-auto">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                       </div>
                     </div>
                   </div>
