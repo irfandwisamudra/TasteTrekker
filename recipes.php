@@ -12,9 +12,9 @@ if (!isset($_GET["recipe_id"])) {
   $recipes = getAllRecipesWithNameMenu();
 } else {
   $recipe_id = $_GET["recipe_id"];
-  $recipe = getRecipeWithMenuByRecipeId($recipe_id);
-  $ingredients = getIngredientsByRecipeId($recipe_id);
-  $methods = getMethodsByRecipeId($recipe_id);
+  $recipe = getRecipesWithMenusByRecipeId($recipe_id);
+  $ingredients = getAllIngredientsByRecipeId($recipe_id);
+  $methods = getAllMethodsByRecipeId($recipe_id);
 }
 ?>
 

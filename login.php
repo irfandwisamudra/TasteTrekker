@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_SESSION["level"] = getLevelByEmail($_POST["email"]);
       $_SESSION["login"] = true;
       if (isset($_POST['remember'])) {
-        $userData = getUserDataHighlight($_POST['email']);
+        $userData = getUsersDataHighlight($_POST['email']);
         setcookie('email', $_POST['email'], time() + 60 * 60 * 24);
         setcookie('key', password_hash($userData['username'], PASSWORD_BCRYPT));
       }

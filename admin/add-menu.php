@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
   unset($_POST);
 }
 
-$categories = getIdAndNameCategories();
+$categories = getAllIdAndNameCategories();
 ?>
 
 <div class="content-body">

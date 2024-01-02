@@ -26,7 +26,7 @@ function register($data)
 
 function validateEmail($data)
 {
-  if (getUserData($data['email']) == NULL) {
+  if (getUsersData($data['email']) == NULL) {
     return false;
   } else {
     return true;
@@ -35,7 +35,7 @@ function validateEmail($data)
 
 function validatePassword($data)
 {
-  $user = getUserData($data['email']);
+  $user = getUsersData($data['email']);
   $passwordCheck = password_verify($data['password'], $user["password"]);
   if ($passwordCheck) {
     return true;

@@ -11,7 +11,7 @@ function getAllCategories()
   return mysqli_query($GLOBALS["db"], "SELECT * FROM category")->fetch_all(MYSQLI_ASSOC);
 }
 
-function getIdAndNameCategories()
+function getAllIdAndNameCategories()
 {
   return mysqli_query($GLOBALS["db"], "SELECT category_id, name_category FROM category")->fetch_all(MYSQLI_ASSOC);
 }
@@ -63,17 +63,17 @@ function getAllRecipesWithNameMenu()
   return mysqli_query($GLOBALS["db"], "SELECT r.*, m.name_menu FROM recipe r INNER JOIN menu m ON r.menu_id = m.menu_id")->fetch_all(MYSQLI_ASSOC);
 }
 
-function getRecipeWithMenuByRecipeId($recipe_id)
+function getRecipesWithMenusByRecipeId($recipe_id)
 {
   return mysqli_query($GLOBALS["db"], "SELECT * FROM recipe r INNER JOIN menu m ON r.menu_id = m.menu_id WHERE r.recipe_id='$recipe_id'")->fetch_assoc();
 }
 
-function getIngredientsByRecipeId($recipe_id)
+function getAllIngredientsByRecipeId($recipe_id)
 {
   return mysqli_query($GLOBALS["db"], "SELECT * FROM ingredient WHERE recipe_id='$recipe_id'")->fetch_all(MYSQLI_ASSOC);
 }
 
-function getMethodsByRecipeId($recipe_id)
+function getAllMethodsByRecipeId($recipe_id)
 {
   return mysqli_query($GLOBALS["db"], "SELECT * FROM method WHERE recipe_id='$recipe_id'")->fetch_all(MYSQLI_ASSOC);
 }
@@ -114,12 +114,12 @@ function getUserByEmail($email)
   return mysqli_query($GLOBALS["db"], "SELECT * FROM user WHERE email='$email'")->fetch_all(MYSQLI_ASSOC)[0];
 }
 
-function getUserData($email)
+function getUsersData($email)
 {
   return mysqli_query($GLOBALS["db"], "SELECT * FROM user WHERE email='$email' ")->fetch_assoc();
 }
 
-function getUserDataHighlight($email)
+function getUsersDataHighlight($email)
 {
   return mysqli_query($GLOBALS["db"], "SELECT email, username FROM user WHERE email='$email' ")->fetch_assoc();
 }
