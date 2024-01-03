@@ -34,7 +34,6 @@
         </a>
         <ul aria-expanded="false">
           <li><a href="<?= BASEURL ?>/admin/orders.php">Data Pesanan</a></li>
-          <li><a href="<?= BASEURL ?>/admin/add-order.php">Tambah Pesanan</a></li>
           <li><a href="<?= BASEURL ?>/admin/report-order.php">Laporan Penjualan</a></li>
         </ul>
       </li>
