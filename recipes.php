@@ -77,7 +77,14 @@ if (!isset($_GET["recipe_id"])) {
         <div class="col-md-6">
           <div class="recipe-info">
             <h3 class="my-4">Info</h3>
-            <!-- Waktu -->
+            <!-- Description -->
+            <div class="row border-bottom border-danger border-1 shadow rounded mx-0 my-2 py-2">
+              <div class="col-2 text-center">
+                <i class="fa fa-book-open text-danger" aria-hidden="true"></i>
+              </div>
+              <div class="col-10"><?= $recipe["desc_recipe"]; ?></div>
+            </div>
+            <!-- Timing -->
             <div class="row border-bottom border-danger border-1 shadow rounded mx-0 my-2 py-2">
               <div class="col-2 text-center">
                 <i class="fa fa-clock text-danger" aria-hidden="true"></i>
@@ -85,7 +92,7 @@ if (!isset($_GET["recipe_id"])) {
               <div class="col-6">Waktu</div>
               <div class="col-4"><?= $recipe["timing"]; ?></div>
             </div>
-            <!-- Porsi -->
+            <!-- Serving -->
             <div class="row border-bottom border-danger border-1 shadow rounded mx-0 my-2 py-2">
               <div class="col-2 text-center">
                 <i class="fa fa-users text-danger" aria-hidden="true"></i>
