@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Des 2023 pada 09.50
+-- Waktu pembuatan: 03 Jan 2024 pada 15.06
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
 
@@ -29,8 +29,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `category_id` varchar(10) NOT NULL,
-  `name_category` varchar(50) NOT NULL
+  `name_category` varchar(50) NOT NULL,
+  `desc_category` varchar(200) NOT NULL,
+  `image_category` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `category`
+--
+
+INSERT INTO `category` (`category_id`, `name_category`, `desc_category`, `image_category`) VALUES
+('7d5469f1-9', 'Masakan Indonesia', 'Masakan Indonesia adalah perpaduan yang kaya dan beraneka ragam dari berbagai bahan makanan lokal, rempah-rempah, dan teknik memasak tradisional.', 'masakan-indonesia.jpeg'),
+('7d54c594-9', 'Masakan Italia', 'Makanan Italia adalah kombinasi yang sempurna antara cita rasa yang otentik, bahan-bahan segar, dan warisan budaya yang kaya. ', 'masakan-italia.jpg'),
+('7d54c971-9', 'Masakan Jepang', 'Masakan Jepang adalah harmoni antara cita rasa yang halus, presentasi yang indah, serta penggunaan bahan-bahan segar dan berkualitas tinggi.', 'masakan-jepang.jpg'),
+('7d558219-9', 'Masakan Korea', 'Masakan Korea adalah perpaduan unik dari rasa, tekstur, dan presentasi menjadikan masakan Korea sangat disukai oleh banyak orang di seluruh dunia.', 'masakan-korea.jpg'),
+('7d5586ee-9', 'Masakan Tiongkok', 'Masakan Tiongkok adalah perpaduan yang kaya dari cita rasa beragam, tekstur berbeda, dan teknik memasak yang unik menjadikannya populer di dunia.', 'masakan-tiongkok.jpg'),
+('7d568793-9', 'Masakan Turki', 'Masakan Turki adalah perpaduan kaya cita rasa yang kuat, kekayaan rempah-rempah, serta pengaruh budaya seperti Yunani, Timur Tengah, dan Balkan. ', 'masakan-turki.jpg');
 
 -- --------------------------------------------------------
 
@@ -43,6 +57,18 @@ CREATE TABLE `ingredient` (
   `recipe_id` varchar(10) NOT NULL,
   `ing_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `ingredient`
+--
+
+INSERT INTO `ingredient` (`ing_id`, `recipe_id`, `ing_name`) VALUES
+('b50d4c41-a', 'e5f3dd38-a', '1 kg daging ayam'),
+('b50db595-a', 'e5f3dd38-a', '10 sdm bumbu sate'),
+('b50db7f2-a', 'e5f3dd38-a', '2 siung bawang merah'),
+('b50db8fe-a', 'e5f3dd38-a', '3 siung bawang putih'),
+('b50dba0f-a', 'e5f3dd38-a', '1 sachet kecap manis'),
+('b50dbb0b-a', 'e5f3dd38-a', '100 ml minyak goreng');
 
 -- --------------------------------------------------------
 
@@ -58,6 +84,18 @@ CREATE TABLE `menu` (
   `image_menu` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `menu`
+--
+
+INSERT INTO `menu` (`menu_id`, `category_id`, `name_menu`, `price`, `image_menu`) VALUES
+('8b1f2589-9', '7d5586ee-9', 'Dimsum', 10000, 'dimsum.jpg'),
+('8b1f64c5-9', '7d568793-9', 'Kebab', 50000, 'kebab.jpg'),
+('8b1f67cf-9', '7d558219-9', 'Kimchi', 16000, 'kimchi.jpg'),
+('8b1f690b-9', '7d54c594-9', 'Pasta', 40000, 'pasta.jpg'),
+('8b1f6a51-9', '7d54c971-9', 'Sushi', 20000, 'sushi.jpg'),
+('8b1f6ec4-9', '7d5469f1-9', 'Sate', 13000, 'sate.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -67,8 +105,20 @@ CREATE TABLE `menu` (
 CREATE TABLE `method` (
   `method_id` varchar(10) NOT NULL,
   `recipe_id` varchar(10) NOT NULL,
-  `method_name` longtext NOT NULL
+  `name_method` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `method`
+--
+
+INSERT INTO `method` (`method_id`, `recipe_id`, `name_method`) VALUES
+('c2da195d-a', 'e5f3dd38-a', 'Siapkan daging ayam yang sudah dipotong kotak-kotak.'),
+('c2da3471-a', 'e5f3dd38-a', 'Campurkan daging ayam dengan bumbu sate.'),
+('c2da3699-a', 'e5f3dd38-a', 'Diamkan selama 1 jam agar bumbu meresap.'),
+('c2da3796-a', 'e5f3dd38-a', 'Tusukkan daging ayam yang telah dibumbui ke tusuk sate.'),
+('c2da3899-a', 'e5f3dd38-a', 'Panggang sate di atas bara api hingga matang.'),
+('c2dbb602-a', 'e5f3dd38-a', 'Sajikan sate dengan bawang merah, bawang putih, dan kecap manis.');
 
 -- --------------------------------------------------------
 
@@ -81,8 +131,16 @@ CREATE TABLE `order` (
   `user_id` varchar(10) NOT NULL,
   `subtotal` int(11) NOT NULL,
   `payment` varchar(50) NOT NULL,
-  `delivery` varchar(50) NOT NULL
+  `delivery` varchar(50) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `order`
+--
+
+INSERT INTO `order` (`order_id`, `user_id`, `subtotal`, `payment`, `delivery`, `date`) VALUES
+('62d53b73-a', '239d5c3ea5', 26000, 'BCA', 'Grab', '2023-12-29 06:36:55');
 
 -- --------------------------------------------------------
 
@@ -98,6 +156,14 @@ CREATE TABLE `order_detail` (
   `subharga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `order_detail`
+--
+
+INSERT INTO `order_detail` (`order_detail_id`, `order_id`, `menu_id`, `quantity`, `subharga`) VALUES
+('1e5f362f-a', '62d53b73-a', '8b1f67cf-9', 1, 16000),
+('3777d806-a', '62d53b73-a', '8b1f2589-9', 1, 10000);
+
 -- --------------------------------------------------------
 
 --
@@ -108,10 +174,18 @@ CREATE TABLE `recipe` (
   `recipe_id` varchar(10) NOT NULL,
   `menu_id` varchar(10) NOT NULL,
   `title` varchar(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `desc_recipe` varchar(255) NOT NULL,
   `serving` varchar(50) NOT NULL,
-  `timing` varchar(50) NOT NULL
+  `timing` varchar(50) NOT NULL,
+  `image_recipe` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `recipe`
+--
+
+INSERT INTO `recipe` (`recipe_id`, `menu_id`, `title`, `desc_recipe`, `serving`, `timing`, `image_recipe`) VALUES
+('e5f3dd38-a', '8b1f6ec4-9', 'Cara Membuat Sate', 'Sate adalah makanan kesukaan banyak orang.', '5 orang', '10 menit', 'sate.jpg');
 
 -- --------------------------------------------------------
 
@@ -128,6 +202,14 @@ CREATE TABLE `user` (
   `image_user` varchar(100) NOT NULL DEFAULT 'default.png',
   `level` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`user_id`, `username`, `email`, `mobile`, `password`, `image_user`, `level`) VALUES
+('239d5c3ea5', 'user', 'user@gmail.com', '', '$2y$10$ZrYrPc38/wg9LQGELqY2jeYOMvXznlF4lylhhGNsTwbEQ0/Nowh6G', 'default.png', 0),
+('c6a37cc99e', 'admin', 'admin@gmail.com', '', '$2y$10$ATlsr3N3dpZ3n5M9twN3Vuocu1NpR2dP1xwVb0hdqXiZ93oHFogk2', 'default.png', 1);
 
 --
 -- Indexes for dumped tables
