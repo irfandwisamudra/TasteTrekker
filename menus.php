@@ -7,10 +7,8 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true && $_SESSION["level"
   header("Location: ./admin/index.php");
   exit;
 }
-?>
 
-<?php
-$menus = getAllMenusWithRecipes();
+$menus = getAllMenusWithRecipeId();
 ?>
 
 <div class="menu-section py-5">

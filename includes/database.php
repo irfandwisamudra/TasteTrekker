@@ -43,9 +43,9 @@ function getAllMenusWithNameCategory()
   return mysqli_query($GLOBALS["db"], "SELECT m.*, c.name_category FROM menu m INNER JOIN category c ON m.category_id = c.category_id")->fetch_all(MYSQLI_ASSOC);
 }
 
-function getAllMenusWithRecipes()
+function getAllMenusWithRecipeId()
 {
-  return mysqli_query($GLOBALS["db"], "SELECT * FROM menu m LEFT JOIN recipe r ON m.menu_id = r.menu_id")->fetch_all(MYSQLI_ASSOC);
+  return mysqli_query($GLOBALS["db"], "SELECT m.*, r.recipe_id FROM menu m LEFT JOIN recipe r ON m.menu_id = r.menu_id")->fetch_all(MYSQLI_ASSOC);
 }
 
 function getAllIdAndNameMenus()

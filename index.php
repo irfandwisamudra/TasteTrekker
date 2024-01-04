@@ -8,7 +8,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true && $_SESSION["level"
   exit;
 }
 
-$menus = getAllMenusWithRecipes();
+$menus = getAllMenusWithRecipeId();
 $categories = getAllCategoriesWithCountRecipes();
 ?>
 
