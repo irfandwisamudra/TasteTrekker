@@ -8,7 +8,12 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true && $_SESSION["level"
   exit;
 }
 
-$menus = getAllMenusWithRecipeId();
+if (!isset($_GET["category_id"])) {
+  $menus = getAllMenusWithRecipeId();
+} else {
+  $category_id = $_GET["category_id"];
+  $menus = getMenusWithRecipeIdByCategoryId($category_id);
+}
 ?>
 
 <div class="menu-section py-5">
