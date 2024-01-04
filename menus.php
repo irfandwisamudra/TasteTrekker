@@ -12,7 +12,7 @@ if (!isset($_GET["category_id"])) {
   $menus = getAllMenusWithRecipeId();
 } else {
   $category_id = $_GET["category_id"];
-  $menus = getMenusWithRecipeIdByCategoryId($category_id);
+  $menus = getAllMenusWithRecipeIdByCategoryId($category_id);
 }
 ?>
 
