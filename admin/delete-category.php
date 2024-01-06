@@ -17,9 +17,7 @@ if (isset($_GET["category_id"])) {
     exit;
   }
 
-  $image_category = $category["image_category"];
-
-  if (deleteImage($image_category, "../assets/img/category/")) {
+  if (deleteImage($category["image_category"], "../assets/img/category/")) {
     if (deleteCategoryByCategoryId($_GET["category_id"])) {
       header("Location: ./categories.php");
       exit;
@@ -28,13 +26,13 @@ if (isset($_GET["category_id"])) {
               alert('Gagal menghapus kategori!');
               document.location.href = 'categories.php';
             </script>";
-    };
+    }
   } else {
     echo "<script>
             alert('File gambar tidak ditemukan!');
             document.location.href = 'categories.php';
           </script>";
-  };
+  }
 } else {
   echo "<script>
           alert('Category ID Invalid!');
