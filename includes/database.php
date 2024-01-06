@@ -38,7 +38,7 @@ function insertCategory($data, $image)
   '" . htmlspecialchars($image) . "')");
 }
 
-function updateCategory($data, $image, $category_id)
+function updateCategoryByCategoryId($data, $image, $category_id)
 {
   return mysqli_query($GLOBALS["db"], "UPDATE category SET
   name_category = '" . htmlspecialchars($data['name_category']) . "', 

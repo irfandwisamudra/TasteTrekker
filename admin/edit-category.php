@@ -25,7 +25,7 @@ if (isset($_GET["category_id"])) {
       $validatedImage = validateImage($_FILES["new_image_category"], "../assets/img/category/");
     }
     if ($validatedImage["success"]) {
-      if (updateCategory($_POST, $validatedImage["file_name"], $_POST["category_id"])) {
+      if (updateCategoryByCategoryId($_POST, $validatedImage["file_name"], $_POST["category_id"])) {
         header("Location: ./categories.php");
         exit;
       } else {
