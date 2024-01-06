@@ -11,6 +11,13 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
 if (isset($_GET["category_id"])) {
   $category = getCategoryByCategoryId($_GET["category_id"]);
 
+  if ($category === NULL) {
+    echo "<script>
+            alert('Category ID Invalid!');
+            document.location.href = 'categories.php';
+          </script>";
+  }
+
   if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     if ($_FILES["new_image_category"]["error"] === 4) {
       $validatedImage = ["success" => true, "file_name" => $_POST["old_image_category"]];
