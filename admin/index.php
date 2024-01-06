@@ -1,7 +1,7 @@
 <?php
 $title = "Dashboard - TasteTrekker Admin";
 
-include "../includes/main_start.php";
+require_once "../includes/main_start.php";
 
 if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level"] != 1) {
   header("Location: ../index.php");
@@ -147,4 +147,4 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
   </div>
 </div>
 
-<?php include "../includes/main_end.php"; ?>
+<?php require_once "../includes/main_end.php"; ?>

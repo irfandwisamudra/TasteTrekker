@@ -1,7 +1,7 @@
 <?php
 $title = "Tambah Kategori - TasteTrekker Admin";
 
-include "../includes/main_start.php";
+require_once "../includes/main_start.php";
 
 if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level"] != 1) {
   header("Location: ../index.php");
@@ -99,4 +99,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
   </div>
 </div>
 
-<?php include "../includes/main_end.php"; ?>
+<?php require_once "../includes/main_end.php"; ?>

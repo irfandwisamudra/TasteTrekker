@@ -1,7 +1,7 @@
 <?php
 $title = "Daftar Resep - TasteTrekker";
 
-include "./includes/main_start.php";
+require_once "./includes/main_start.php";
 
 if (isset($_SESSION["login"]) && $_SESSION["login"] == true && $_SESSION["level"] == 1) {
   header("Location: ./admin/index.php");
@@ -29,4 +29,4 @@ $menus = getAllMenusHighlight();
 </section>
 
 
-<?php include "./includes/main_end.php"; ?>
+<?php require_once "./includes/main_end.php"; ?>
