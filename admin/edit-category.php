@@ -38,6 +38,8 @@ if (isset($_GET["category_id"])) {
           <div class="card-body">
             <div class="form-validation">
               <form class="form-valide-category" action="" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="category_id" value="<?= $category["category_id"]; ?>">
+                <input type="hidden" name="old_image_category" value="<?= $category["image_category"]; ?>">
                 <div class="row">
                   <div class="col-xl-12">
                     <div class="form-group row">
@@ -45,7 +47,7 @@ if (isset($_GET["category_id"])) {
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
-                        <input type="text" class="form-control" id="name_category" name="name_category" placeholder="Masukkan nama..">
+                        <input type="text" class="form-control" id="name_category" name="name_category" placeholder="Masukkan nama.." value="<?= $category['name_category']; ?>">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -53,7 +55,7 @@ if (isset($_GET["category_id"])) {
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
-                        <input type="text" class="form-control" id="desc_category" name="desc_category" placeholder="Masukkan deskripsi..">
+                        <input type="text" class="form-control" id="desc_category" name="desc_category" placeholder="Masukkan deskripsi.." value="<?= $category['desc_category']; ?>">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -61,13 +63,16 @@ if (isset($_GET["category_id"])) {
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-6">
+                        <div class="mb-2">
+                          <img src="<?= BASEURL ?>/assets/img/category/<?= $category['image_category']; ?>" alt="Gambar Kategori" class="img-thumbnail" style="max-width: 100px;">
+                        </div>
                         <div class="input-group">
                           <div class="input-group-prepend">
                             <span class="input-group-text">Upload</span>
                           </div>
                           <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="image_category" name="image_category">
-                            <label class="custom-file-label">Pilih file</label>
+                            <input type="file" class="custom-file-input" id="image_category" name="new_image_category">
+                            <label class="custom-file-label" for="image_category">Pilih file</label>
                           </div>
                         </div>
                       </div>
