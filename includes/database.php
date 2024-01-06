@@ -47,6 +47,11 @@ function updateCategory($data, $image, $category_id)
   WHERE category_id = '$category_id'");
 }
 
+function deleteCategoryByCategoryId($category_id)
+{
+  return mysqli_query($GLOBALS["db"], "DELETE FROM category WHERE category_id='$category_id'");
+}
+
 function getAllMenusHighlight()
 {
   return mysqli_query($GLOBALS["db"], "SELECT name_menu, image_menu FROM menu")->fetch_all(MYSQLI_ASSOC);
