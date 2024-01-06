@@ -10,6 +10,30 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
 
 if (isset($_GET["category_id"])) {
   $category = getCategoryByCategoryId($_GET["category_id"]);
+
+  if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
+    if ($_FILES["new_image_category"]["error"] === 4) {
+      $validatedImage = ["success" => true, "file_name" => $_POST["old_image_category"]];
+    } else {
+      $validatedImage = validateImage($_FILES["new_image_category"], "../assets/img/category/");
+    }
+    if ($validatedImage["success"]) {
+      if (updateCategory($_POST, $validatedImage["file_name"], $_POST["category_id"])) {
+        header("Location: ./categories.php");
+        exit;
+      } else {
+        echo "<script>
+                alert('Gagal mengubah kategori');
+              </script>";
+      }
+    } else {
+      $errorMessage = $validatedImage["error"];
+      echo "<script>
+              alert('$errorMessage');
+            </script>";
+    }
+    unset($_POST);
+  }
 } else {
   echo "<script>
           alert('Category ID Invalid!');
