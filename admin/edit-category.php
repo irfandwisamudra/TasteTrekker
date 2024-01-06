@@ -25,12 +25,19 @@ if (isset($_GET["category_id"])) {
       $validatedImage = validateImage($_FILES["new_image_category"], "../assets/img/category/");
     }
     if ($validatedImage["success"]) {
-      if (updateCategoryByCategoryId($_POST, $validatedImage["file_name"], $_POST["category_id"])) {
-        header("Location: ./categories.php");
-        exit;
+      if (deleteImage($_POST["old_image_category"], "../assets/img/category/")) {
+        if (updateCategoryByCategoryId($_POST, $validatedImage["file_name"], $_POST["category_id"])) {
+          header("Location: ./categories.php");
+          exit;
+        } else {
+          echo "<script>
+                alert('Gagal mengubah kategori');
+              </script>";
+        }
       } else {
         echo "<script>
-                alert('Gagal mengubah kategori');
+                alert('File gambar lama tidak ditemukan!');
+                document.location.href = 'categories.php';
               </script>";
       }
     } else {
