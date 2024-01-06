@@ -38,6 +38,15 @@ function insertCategory($data, $image)
   '" . htmlspecialchars($image) . "')");
 }
 
+function updateCategory($data, $image, $category_id)
+{
+  return mysqli_query($GLOBALS["db"], "UPDATE category SET
+  name_category = '" . htmlspecialchars($data['name_category']) . "', 
+  desc_category = '" . htmlspecialchars($data['desc_category']) . "',
+  image_category = '" . htmlspecialchars($image) . "'
+  WHERE category_id = '$category_id'");
+}
+
 function getAllMenusHighlight()
 {
   return mysqli_query($GLOBALS["db"], "SELECT name_menu, image_menu FROM menu")->fetch_all(MYSQLI_ASSOC);
