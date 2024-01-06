@@ -74,3 +74,12 @@ function validateImage($image, $dirFile)
 
   return ["success" => true, "file_name" => $newFileName];
 }
+
+function deleteImage($imageName, $dirFile) {
+  $imagePath = $dirFile . $imageName;
+  if (file_exists($imagePath)) {
+    unlink($imagePath);
+    return true;
+  }
+  return false;
+}
