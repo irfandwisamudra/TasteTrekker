@@ -24,6 +24,11 @@ function getAllCategoriesWithCountRecipes()
   GROUP BY c.category_id")->fetch_all(MYSQLI_ASSOC);
 }
 
+function getCategoryByCategoryId($category_id)
+{
+  return mysqli_query($GLOBALS["db"], "SELECT * FROM category WHERE category_id = '$category_id'")->fetch_assoc();
+}
+
 function insertCategory($data, $image)
 {
   return mysqli_query($GLOBALS["db"], "INSERT INTO category (category_id, name_category, desc_category, image_category)
