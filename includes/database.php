@@ -93,6 +93,17 @@ function insertMenu($data, $image)
   '" . htmlspecialchars($image) . "')");
 }
 
+function updateMenuByMenuId($data, $image, $menu_id)
+{
+  return mysqli_query($GLOBALS["db"], "UPDATE menu SET
+  name_menu = '" . htmlspecialchars($data['name_menu']) . "', 
+  category_id = '" . htmlspecialchars($data['category_id']) . "', 
+  name_menu = '" . htmlspecialchars($data['name_menu']) . "',
+  price = '" . htmlspecialchars($data['price']) . "',
+  image_menu = '" . htmlspecialchars($image) . "'
+  WHERE menu_id = '$menu_id'");
+}
+
 function getAllRecipesWithNameMenu()
 {
   return mysqli_query($GLOBALS["db"], "SELECT r.*, m.name_menu FROM recipe r INNER JOIN menu m ON r.menu_id = m.menu_id")->fetch_all(MYSQLI_ASSOC);
