@@ -78,6 +78,11 @@ function getAllIdAndNameMenus()
   return mysqli_query($GLOBALS["db"], "SELECT menu_id, name_menu FROM menu")->fetch_all(MYSQLI_ASSOC);
 }
 
+function getMenuByMenuId($menu_id)
+{
+  return mysqli_query($GLOBALS["db"], "SELECT * FROM menu WHERE menu_id = '$menu_id'")->fetch_assoc();
+}
+
 function insertMenu($data, $image)
 {
   return mysqli_query($GLOBALS["db"], "INSERT INTO menu (menu_id, category_id, name_menu, price, image_menu)
