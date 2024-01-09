@@ -14,46 +14,45 @@ if (isset($_GET["menu_id"])) {
   if ($menu === NULL) {
     echo "<script>
             alert('Menu ID Invalid!');
-            document.location.href = 'categories.php';
+            documents.location.href = 'menus.php';
           </script>";
   }
 
   if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
-    if ($_FILES["new_image_menu"]["error"] === 4) {
-      $validatedImage = ["success" => true, "file_name" => $_POST["old_image_menu"]];
-    } else {
+    if ($_FILES["new_image_menu"]["error"] !== 4) {
       $validatedImage = validateImage($_FILES["new_image_menu"], "../assets/img/menu/");
-    }
-    if ($validatedImage["success"]) {
-      if (deleteImage($_POST["old_image_menu"], "../assets/img/menu/")) {
-        if (updateMenuByMenuId($_POST, $validatedImage["file_name"], $_POST["menu_id"])) {
-          header("Location: ./menus.php");
-          exit;
-        } else {
-          echo "<script>
-                alert('Gagal mengubah menu');
-              </script>";
-        }
+
+      if ($validatedImage["success"]) {
+        deleteImage($_POST["old_image_menu"], "../assets/img/menu/");
+        $file_name = $validatedImage["file_name"];
       } else {
+        $errorMessage = $validatedImage["error"];
         echo "<script>
-                alert('File gambar lama tidak ditemukan!');
-                document.location.href = 'menus.php';
+                alert('$errorMessage');
               </script>";
+        $file_name = false;
       }
     } else {
-      $errorMessage = $validatedImage["error"];
-      echo "<script>
-              alert('$errorMessage');
-            </script>";
+      $file_name = $_POST["old_image_menu"];
     }
-    unset($_POST);
+
+    if ($file_name !== false) {
+      if (updateMenuByMenuId($_POST, $file_name, $_POST["menu_id"])) {
+        header("Location: ./menus.php");
+        exit;
+      } else {
+        echo "<script>
+                alert('Gagal mengubah menu');
+              </script>";
+      }
+    }
   }
 
   $categories = getAllIdAndNameCategories();
 } else {
   echo "<script>
           alert('Menu ID Invalid!');
-          document.location.href = 'menus.php';
+          documents.location.href = 'menus.php';
         </script>";
 }
 ?>
