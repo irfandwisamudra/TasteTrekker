@@ -146,6 +146,11 @@ function insertRecipe($data, $image)
   '" . htmlspecialchars($image) . "')");
 }
 
+function deleteRecipeByRecipeId($recipe_id)
+{
+  return mysqli_query($GLOBALS["db"], "DELETE FROM recipe WHERE recipe_id='$recipe_id'");
+}
+
 function getAllOrdersWithUsername()
 {
   return mysqli_query($GLOBALS["db"], "SELECT o.*, u.username FROM `order` o INNER JOIN user u ON o.user_id = u.user_id")->fetch_all(MYSQLI_ASSOC);
