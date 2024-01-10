@@ -104,6 +104,11 @@ function updateMenuByMenuId($data, $image, $menu_id)
   WHERE menu_id = '$menu_id'");
 }
 
+function deleteMenuByMenuId($menu_id)
+{
+  return mysqli_query($GLOBALS["db"], "DELETE FROM menu WHERE menu_id='$menu_id'");
+}
+
 function getAllRecipesWithNameMenu()
 {
   return mysqli_query($GLOBALS["db"], "SELECT r.*, m.name_menu FROM recipe r INNER JOIN menu m ON r.menu_id = m.menu_id")->fetch_all(MYSQLI_ASSOC);
