@@ -129,6 +129,11 @@ function getAllMethodsByRecipeId($recipe_id)
   return mysqli_query($GLOBALS["db"], "SELECT * FROM method WHERE recipe_id='$recipe_id'")->fetch_all(MYSQLI_ASSOC);
 }
 
+function getRecipeByRecipeId($recipe_id)
+{
+  return mysqli_query($GLOBALS["db"], "SELECT * FROM recipe WHERE recipe_id = '$recipe_id'")->fetch_assoc();
+}
+
 function insertRecipe($data, $image)
 {
   return mysqli_query($GLOBALS["db"], "INSERT INTO recipe (recipe_id, menu_id, title, desc_recipe, serving, timing, image_recipe)
