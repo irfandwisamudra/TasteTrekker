@@ -7,6 +7,54 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
   header("Location: ../index.php");
   exit;
 }
+
+if (isset($_GET["recipe_id"])) {
+  $recipe = getRecipeWithNameMenuByRecipeId($_GET["recipe_id"]);
+
+  if ($recipe === NULL) {
+    echo "<script>
+            alert('Recipe ID Invalid!');
+            documents.location.href = 'recipes.php';
+          </script>";
+  }
+
+  if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
+    if ($_FILES["new_image_recipe"]["error"] !== 4) {
+      $validatedImage = validateImage($_FILES["new_image_recipe"], "../assets/img/recipe/");
+
+      if ($validatedImage["success"]) {
+        deleteImage($_POST["old_image_recipe"], "../assets/img/recipe/");
+        $file_name = $validatedImage["file_name"];
+      } else {
+        $errorMessage = $validatedImage["error"];
+        echo "<script>
+                alert('$errorMessage');
+              </script>";
+        $file_name = false;
+      }
+    } else {
+      $file_name = $_POST["old_image_recipe"];
+    }
+
+    if ($file_name !== false) {
+      if (updateRecipeByRecipeId($_POST, $file_name, $_POST["recipe_id"])) {
+        header("Location: ./recipes.php");
+        exit;
+      } else {
+        echo "<script>
+                alert('Gagal mengubah recipe');
+              </script>";
+      }
+    }
+  }
+
+  $menus = getAllIdAndNameMenus();
+} else {
+  echo "<script>
+          alert('Recipe ID Invalid!');
+          documents.location.href = 'recipes.php';
+        </script>";
+}
 ?>
 
 <div class="content-body">
