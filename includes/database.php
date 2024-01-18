@@ -146,6 +146,18 @@ function insertRecipe($data, $image)
   '" . htmlspecialchars($image) . "')");
 }
 
+function updateRecipeByRecipeId($data, $image, $recipe_id)
+{
+  return mysqli_query($GLOBALS["db"], "UPDATE recipe SET
+  menu_id = '" . htmlspecialchars($data['menu_id']) . "', 
+  title = '" . htmlspecialchars($data['title']) . "', 
+  desc_recipe = '" . htmlspecialchars($data['desc_recipe']) . "',
+  serving = '" . htmlspecialchars($data['serving']) . "',
+  timing = '" . htmlspecialchars($data['timing']) . "',
+  image_recipe = '" . htmlspecialchars($image) . "'
+  WHERE recipe_id = '$recipe_id'");
+}
+
 function deleteRecipeByRecipeId($recipe_id)
 {
   return mysqli_query($GLOBALS["db"], "DELETE FROM recipe WHERE recipe_id='$recipe_id'");
