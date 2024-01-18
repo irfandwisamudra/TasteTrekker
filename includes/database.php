@@ -96,9 +96,8 @@ function insertMenu($data, $image)
 function updateMenuByMenuId($data, $image, $menu_id)
 {
   return mysqli_query($GLOBALS["db"], "UPDATE menu SET
+  category_id = '" . htmlspecialchars($data['category_id']) . "',
   name_menu = '" . htmlspecialchars($data['name_menu']) . "', 
-  category_id = '" . htmlspecialchars($data['category_id']) . "', 
-  name_menu = '" . htmlspecialchars($data['name_menu']) . "',
   price = '" . htmlspecialchars($data['price']) . "',
   image_menu = '" . htmlspecialchars($image) . "'
   WHERE menu_id = '$menu_id'");
