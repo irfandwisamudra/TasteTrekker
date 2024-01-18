@@ -134,6 +134,11 @@ function getRecipeByRecipeId($recipe_id)
   return mysqli_query($GLOBALS["db"], "SELECT * FROM recipe WHERE recipe_id = '$recipe_id'")->fetch_assoc();
 }
 
+function getRecipeWithNameMenuByRecipeId($recipe_id)
+{
+  return mysqli_query($GLOBALS["db"], "SELECT r.*, m.name_menu FROM recipe r INNER JOIN menu m ON r.menu_id = m.menu_id WHERE r.recipe_id='$recipe_id'")->fetch_assoc();
+}
+
 function insertRecipe($data, $image)
 {
   return mysqli_query($GLOBALS["db"], "INSERT INTO recipe (recipe_id, menu_id, title, desc_recipe, serving, timing, image_recipe)
