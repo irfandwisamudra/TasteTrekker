@@ -182,6 +182,11 @@ function deleteOrderByOrderId($order_id)
   return mysqli_query($GLOBALS["db"], "DELETE FROM `order` WHERE order_id='$order_id'");
 }
 
+function deleteOrderDetailByOrderId($order_id)
+{
+  return mysqli_query($GLOBALS["db"], "DELETE FROM order_detail WHERE order_id='$order_id'");
+}
+
 function insertUser($data)
 {
   return mysqli_query($GLOBALS["db"], "INSERT INTO user (user_id, username, email, `password`, image_user, `level`)
