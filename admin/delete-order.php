@@ -17,14 +17,14 @@ if (isset($_GET["order_id"])) {
     exit;
   }
 
-  if (deleteOrderByOrderId($_GET["order_id"])) {
+  if (deleteOrderDetailByOrderId($_GET["order_id"]) && deleteOrderByOrderId($_GET["order_id"])) {
     header("Location: ./orders.php");
     exit;
   } else {
     echo "<script>
-              alert('Gagal menghapus resep!');
-              document.location.href = 'orders.php';
-            </script>";
+            alert('Gagal menghapus pesanan!');
+            document.location.href = 'orders.php';
+          </script>";
   }
 } else {
   echo "<script>
