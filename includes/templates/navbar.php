@@ -31,7 +31,7 @@
           </li>
         </ul>
         <?php if (!isset($_SESSION["login"]) || $_SESSION["login"] != true) : ?>
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav d-flex align-items-center ms-auto">
             <li class="nav-item">
               <a class="btn btn-outline-danger mx-2" href="<?= BASEURL ?>/login.php">Login</a>
             </li>
@@ -41,7 +41,7 @@
           </ul>
         <?php else :
           $user = getUserByEmail($_SESSION["email"]); ?>
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav d-flex align-items-center ms-auto">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle p-0" href="" id="userDropdown" role="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $user["username"]; ?></span>
