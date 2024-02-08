@@ -9,6 +9,4 @@ if (!isset($_SESSION["login"]) || $_SESSION["login"] != true || $_SESSION["level
 }
 ?>
 
-
-
 <?php require_once "../includes/main_end.php"; ?>
